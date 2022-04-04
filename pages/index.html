@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>TA Manager</title>
+<title>TA Manager | McGill University</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+
+    <div id="landing-header">
+      <img id="cs-logo" src="/assets/McGill-CS.png">
+    </div>
+
     <div id="login-container">
-        <h1>Login</h1>
         
         <form id="login-form">
+          <h1>TA Management System</h1>
           <input type="text" name="username" placeholder="Username">
           <input type="password" name="password" placeholder="Password">
-          <input type="submit" value="Login">
+          <input id="login-btn" type="submit" value="Login">
         </form>
 
-        <button>Register</button>
+        <a href="register.html">Register here</a>
       
     </div>
+
+    <footer>
+      <div class="mcgill">
+        McGill University
+      </div>
+      <div class="copyright">
+        &copy; Lilia Haché, Adrien Philardeau, César Niyonkuru
+      </div>
+    </footer>
 </body>
 
 </html>

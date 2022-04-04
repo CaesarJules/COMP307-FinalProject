@@ -1,0 +1,61 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+a, a:visited, a:hover{
+    color: #ED1B2F;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#landing-header {
+    width: 100%;
+    height: 75px;
+    background-color: #333;
+    margin-bottom: 30px;
+}
+
+#login-container {
+    background-color: #F4F4F4;
+    padding: 10px;
+    margin: auto;
+    width: 30%;
+}
+
+#login-form h1 {
+    text-align: center;
+    margin: 20px;
+}
+
+#login-form input {
+    display: block;
+    margin: 12px auto 12px auto;
+    width: 50%;
+    padding: 7px;
+}
+
+#login-btn {
+    background-color: #ED1B2F;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+footer div {
+    display: inline;
+}
+
+.copyright {
+    float: right;
+}
