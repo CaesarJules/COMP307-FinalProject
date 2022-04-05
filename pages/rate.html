@@ -30,25 +30,29 @@
     <div class="header"></div>
 
     <div id="rate-container">
-        <h1>Rate TA's Name Goes Here</h1>
-        <form>
-            <h4>Select course code:</h4>
-            <select name="course" id="course-select">
-                <option value="Course Code Goes Here">Course Code Goes Here</option>
-                <option value="Course Code Goes Here">Course Code Goes Here</option>
-                <option value="Course Code Goes Here">Course Code Goes Here</option>
-            </select>
-            <h4>Select term:</h4>
-            <select name="term" id="term-select">
-                <option value="Term Goes Here">Term Goes Here</option>
-                <option value="Term Goes Here">Term Goes Here</option>
-                <option value="Term Goes Here">Term Goes Here</option>
-            </select>
-            <h4>Rate this TA: todo</h4>
-
-            <h4>Write a review:</h4>
-            <input type="text" name="ta-review" placeholder="Write a review">
-        </form>
+        <div class="rate-select">
+            <h3>Select a course:</h3>
+            <div class="rate-option">COMP 307</div>
+            <div class="rate-option">COMP 307</div>
+            <div class="rate-option">COMP 307</div>
+        </div>
+        <div class="rate-select">
+            <h3>Select a term:</h3>
+            <div class="rate-option">Winter 2022</div>
+            <div class="rate-option">Winter 2022</div>
+        </div>
+        <div class="rate-select">
+            <h3>Select a TA:</h3>
+            <div class="rate-option">TA Name</div>
+            <div class="rate-option">TA Name</div>
+        </div>
+        <div class="rate-review">
+            <h3>Rate this TA:</h3>
+            <form>
+                <input type="text" placeholder="Write a review">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
     </div>
 
     <footer>

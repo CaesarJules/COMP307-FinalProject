@@ -114,11 +114,39 @@ a, a:visited, a:hover{
 }
 
 #rate-container {
+    width:80%;
     margin:10% auto;
-    text-align: center;
-    background-color: #F4F4F4;
-    padding: 40px 30px;
-    width: 40%;
+}
+
+#rate-container h3 {
+    margin-bottom: 10px;
+}
+
+.rate-select, .rate-review {
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin:10px 0;
+}
+
+.rate-option {
+    background-color: white;
+    display: inline-block;
+    padding: 10px;
+    margin: 0 5px;
+    transition: 0.25s;
+}
+
+.rate-option:hover {
+    background-color: #ED1B2F;
+}
+
+.rate-review input {
+    display: block;
+}
+
+.rate-review input[type="text" i] {
+    padding:10px;
+    width: 50%;
 }
 
 #search-ta{
