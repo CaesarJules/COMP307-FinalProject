@@ -1,9 +1,11 @@
 html, body {
+    height: 100%; 
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     margin:0;
-    height: 100%; 
     width: 100%;
+    display:flex; 
+    flex-direction:column;
 }
 
 a, a:visited, a:hover{
@@ -12,26 +14,49 @@ a, a:visited, a:hover{
     font-weight: bold;
 }
 
-#cs-logo {
+.top-banner {
+    max-height: 3vh;
+    width: 100%;
+    background-color: #f4f4f4;
+}
+#logout {
+    color: #7b7b7b;
+}
+.logout-icon, .user-icon {
+    height: 3vh;
+    color: #7b7b7b;
+    line-height: 3vh;
+    width: 15%;
+    float: right;
+    text-align: right;
+    margin-right: 3vh;
+}
+#logout:hover, .user-icon:hover {
+    color: #000000;
+}
+
+.cs-logo {
     position: absolute;
-    max-height: 110px;
-    top:15px;
+    max-height: 10%;
+    top: 3vh;
     left:10%;
     z-index: 999;
 }
 
-header {
-    margin-top:50px;
+.header {  
+    position: absolute;
     background-color: #333333;
-    height:15%;
+    height: 10%;
     width: 100%;
+    margin-top:9vh;
 }
 
-#login-container {
+.login-container {
     background-color: #F4F4F4;
     padding: 10px;
-    margin: 30px auto 30px auto;
+    margin:15% auto;
     width: 30%;
+    
 }
 
 #login-form h1 {
@@ -57,14 +82,39 @@ header {
     width: max-content;
     margin: auto;
 }
+.dashboard-container{
+    width:80%;
+    margin:15% auto;
+    text-align: center;
+    padding: 5px;
+}
+.task {
+    width:30%;
+    display: inline-block;
+    background-color: #F4F4F4;
+    margin: 2%;
+}
+.task-name {
+    color: #000000;
+    background-color: rgba(167, 167, 167, 0.3);
+    font-size: 4vh;
+    padding: 5px 0px;
+}
+
+.task:hover {
+    cursor: pointer;
+    background-color: #ED1B2F;
+}
+.task-logo i{
+    font-size: 100px;
+    padding:10%;
+}
 
 footer {
     background-color: black;
     color: white;
     padding: 20px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    margin-top:auto;
     width: 100%;
 }
 
@@ -73,5 +123,7 @@ footer div {
 }
 
 .copyright {
+    margin-right: 3vh;
+    padding: 0%;
     float: right;
 }
