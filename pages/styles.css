@@ -56,7 +56,6 @@ a, a:visited, a:hover{
     padding: 10px;
     margin:15% auto;
     width: 30%;
-    
 }
 
 #login-form h1 {
@@ -94,6 +93,10 @@ a, a:visited, a:hover{
     background-color: #F4F4F4;
     margin: 2%;
 }
+
+.task a {
+    color:black;
+}
 .task-name {
     color: #000000;
     background-color: rgba(167, 167, 167, 0.3);
@@ -108,6 +111,20 @@ a, a:visited, a:hover{
 .task-logo i{
     font-size: 100px;
     padding:10%;
+}
+
+#rate-container {
+    margin:10% auto;
+    text-align: center;
+    background-color: #F4F4F4;
+    padding: 40px 30px;
+    width: 40%;
+}
+
+#search-ta{
+    padding: 10px;
+    width: 50%;
+    margin: auto;
 }
 
 footer {
