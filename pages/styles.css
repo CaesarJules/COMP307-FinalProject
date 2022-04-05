@@ -18,47 +18,47 @@ a, a:visited, a:hover{
     top:15px;
     left:10%;
     z-index: 999;
-  }
-  
-  header {
+}
+
+header {
     margin-top:50px;
     background-color: #333333;
     height:15%;
     width: 100%;
-  }
-  
-  #login-container {
+}
+
+#login-container {
     background-color: #F4F4F4;
     padding: 10px;
     margin: 30px auto 30px auto;
     width: 30%;
-  }
-  
-  #login-form h1 {
+}
+
+#login-form h1 {
     text-align: center;
     margin: 20px;
-  }
-  
-  #login-form input {
+}
+
+#login-form input {
     display: block;
     margin: 12px auto 12px auto;
     width: 50%;
     padding: 7px;
-  }
-  
-  #login-btn {
+}
+
+.submit-btn {
     background-color: #ED1B2F;
     border: none;
     color: white;
     cursor: pointer;
-  }
-  
-  #register-btn {
-  width: max-content;
-  margin: auto;
-  }
-  
-  footer {
+}
+
+.form-link {
+    width: max-content;
+    margin: auto;
+}
+
+footer {
     background-color: black;
     color: white;
     padding: 20px;
@@ -66,12 +66,12 @@ a, a:visited, a:hover{
     bottom: 0;
     left: 0;
     width: 100%;
-  }
-  
-  footer div {
+}
+
+footer div {
     display: inline;
-  }
-  
-  .copyright {
+}
+
+.copyright {
     float: right;
-  }
+}
