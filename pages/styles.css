@@ -155,20 +155,20 @@ a, a:visited, a:hover{
     margin: auto;
 }
 
-footer {
+.footer {
+    width: 100%;
+    height: 5vh;
+    line-height: 5vh;
     background-color: black;
     color: white;
-    padding: 20px;
-    margin-top:auto;
-    width: 100%;
+    margin-top:auto; 
 }
 
-footer div {
+.mcgill, .copyright {
     display: inline;
+    margin: 0% 3vh;
 }
-
 .copyright {
-    margin-right: 3vh;
     padding: 0%;
     float: right;
 }
