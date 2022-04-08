@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TA Manager | McGill University</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="top-banner">
+        <div class="logout-icon">
+            <a href="javascript:void(0);" id="logout" onclick="">
+                <i class="fa-solid fa-right-from-bracket"></i> Log Out
+            </a>
+        </div>
+
+        <div class="user-icon">
+            <i class="fa-solid fa-user-check"></i> jules.niyonkuru@mail.mcgill.ca
+        </div>
+    </div>
+
+    <div class="cs-logo">
+        <a href="dashboard.html"><img src="../assets/McGill-CS.png" alt="McGill Logo"></a>
+    </div>
+
+    <div class="header"></div>
+
+    <div class="global-container">
+        <div class="global-sidebar">
+            <dl>
+                <dt onclick="location.href='javascript:void(0)';" class="selected-task" >Select Course <i class="fa-solid fa-circle-chevron-down"></i> </dt>
+                <dd onclick="location.href='javascript:void(0)';" >Office Hours/responsibilities Sheet</dd>
+                <dd onclick="location.href='javascript:void(0)';" >Channel</dd>   
+                <dd onclick="location.href='javascript:void(0)';" >Prof's TA performance log</dd>
+                <dd onclick="location.href='javascript:void(0)';" >TA wishlist</dd> 
+                <dt onclick="location.href='javascript:void(0)';" >All TA's Report</dt>
+            </dl>
+        </div>
+        <div class="global-main">
+            <div id="ta-mgnt">
+                <h1>TA Management</h1>
+
+                <div class="dropdown">
+                    <button class="course-btn">Course</button>
+                    <div class="dropdown-content">
+                      <a href="#">COMP 307</a>
+                      <a href="#">COMP 521</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="mcgill">
+            McGill University
+        </div>
+        <div class="copyright">
+            &copy; Lilia Haché, Adrien Philardeau, César Niyonkuru
+        </div>
+    </div>
+    
+</body>
+
+</html>

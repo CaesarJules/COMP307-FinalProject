@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TA Manager | McGill University</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="top-banner">
+        <div class="logout-icon">
+            <a href="javascript:void(0);" id="logout" onclick="">
+                <i class="fa-solid fa-right-from-bracket"></i> Log Out
+            </a>
+        </div>
+
+        <div class="user-icon">
+            <i class="fa-solid fa-user-check"></i> jules.niyonkuru@mail.mcgill.ca
+        </div>
+    </div>
+
+    <div class="cs-logo">
+        <a href="dashboard.html"><img src="../assets/McGill-CS.png" alt="McGill Logo"></a>
+    </div>
+
+    <div class="header"></div>
+
+    <div class="global-container">
+        <div class="global-sidebar">
+            <dl>
+                <!--
+                <dt>Coffee</dt>
+                <dd>Black hot drink</dd>
+                <dt>Milk</dt>
+                <dd>White cold drink</dd>    
+                -->
+                <dt onclick="location.href='javascript:void(0)';" class="selected-task">Manage users</dt>
+                <dt onclick="location.href='javascript:void(0)';" >Import prof + course</dt>
+                <dt onclick="location.href='javascript:void(0)';" >Manual add prof + course</dt>   
+            </dl>
+        </div>
+        <div class="global-main">
+            <div id="manage-users">
+                <h1>Manage Users</h1>
+                <form>
+                    <input id="search-user" type="search" name="search-user" placeholder="Search">
+                </form>
+                <table>
+                    <tr>
+                      <th>
+                        <input type="checkbox" id="select-all" name="select" value="all-selected">
+                        <label for="select-all">Username</label><br>
+                      </th>
+                      <th>Roles</th>
+                      <th>Course</th>
+                      <th>Semester</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="selected-id" name="select" value="selected-username">
+                            <label for="selected-id">Jondoe</label><br>
+                        </td>
+                        <td>Professor, TA administrator, System operator</td>
+                        <td>COMP 303</td>
+                        <td>Summer 2022</td>
+                    </tr>
+                  </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="mcgill">
+            McGill University
+        </div>
+        <div class="copyright">
+            &copy; Lilia Haché, Adrien Philardeau, César Niyonkuru
+        </div>
+    </div>
+    
+</body>
+
+</html>

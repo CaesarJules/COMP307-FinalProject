@@ -113,7 +113,7 @@ a, a:visited, a:hover{
     padding:10%;
 }
 
-#rate-container {
+#rate-container, .global-container{
     width:80%;
     margin:10% auto;
 }
@@ -149,10 +149,74 @@ a, a:visited, a:hover{
     width: 50%;
 }
 
-#search-ta{
+#search-ta, #search-user {
     padding: 10px;
-    width: 50%;
+    width: 30%;
     margin: auto;
+    border: 1px solid #bbbbbb;
+    border-radius: 10px;
+}
+.global-sidebar {
+    width: 17%;
+    float: left;
+    margin-right: 3%;
+}
+.global-main {
+    width: 80%;
+    float: left;
+}
+.global-sidebar dt, dd {
+    padding: 4%;
+}
+.global-sidebar i {
+    margin-left: 2%;
+}
+.global-sidebar dt:hover, dd:hover, .selected-task{
+    background-color: #f4f4f4;
+}
+table{
+    margin-top: 4%;
+    border-collapse: collapse;
+    font-size: medium;
+}
+th, td{
+    border-bottom: 1px solid #bbbbbb;
+    padding: 1rem 2rem;
+    text-align: left;   
+}
+.course-btn {
+    background-color: #000000;
+    color: white;
+    padding: 15px;
+    font-size: large;
+    border-radius: 10px;
+    border: none;
+  }
+.dropdown {
+    margin-top: 2%;
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    background-color: #f4f4f4;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: #000000;
+    padding: 15px;
+    font-size: large;
+    text-decoration: none;
+    display: block;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #ED1B2F;
 }
 
 .footer {

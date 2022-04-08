@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TA Manager | McGill University</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="top-banner">
+        <div class="logout-icon">
+            <a href="javascript:void(0);" id="logout" onclick="">
+                <i class="fa-solid fa-right-from-bracket"></i> Log Out
+            </a>
+        </div>
+
+        <div class="user-icon">
+            <i class="fa-solid fa-user-check"></i> jules.niyonkuru@mail.mcgill.ca
+        </div>
+    </div>
+
+    <div class="cs-logo">
+        <a href="dashboard.html"><img src="../assets/McGill-CS.png" alt="McGill Logo"></a>
+    </div>
+
+    <div class="header"></div>
+
+    <div class="global-container">
+        <div class="global-sidebar">
+            <dl>
+                <!--
+                <dt>Coffee</dt>
+                <dd>Black hot drink</dd>
+                <dt>Milk</dt>
+                <dd>White cold drink</dd>    
+                -->
+                <dt onclick="location.href='javascript:void(0)';" >TA info/history</dt>
+                <dt onclick="location.href='javascript:void(0)';" >Import TA cohort</dt>
+                <dt onclick="location.href='javascript:void(0)';" class="selected-task" >Course TA history</dt>   
+                <dt onclick="location.href='javascript:void(0)';" >Add TA to Course</dt>
+                <dt onclick="location.href='javascript:void(0)';" >Remove TA from Course</dt> 
+            </dl>
+        </div>
+        <div class="global-main">
+            <div id="ta-admin">
+                <h1>TA Administration</h1>
+
+                <div class="dropdown">
+                    <button class="course-btn">Course</button>
+                    <div class="dropdown-content">
+                      <a href="#">COMP 307</a>
+                      <a href="#">COMP 521</a>
+                    </div>
+                </div>
+
+                <table>
+                    <tr>
+                      <th>TA Name</th>
+                      <th>Course Name</th>
+                      <th>Semester</th>
+                      <th>Professor</th>
+                    </tr>
+                    <tr>
+                        <td>Li Wang</td>
+                        <td>COMP 521</td>
+                        <td>Fall 2008</td>
+                        <td>Prof. Todd Lebeau</td>
+                    </tr>
+                  </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="mcgill">
+            McGill University
+        </div>
+        <div class="copyright">
+            &copy; Lilia Haché, Adrien Philardeau, César Niyonkuru
+        </div>
+    </div>
+    
+</body>
+
+</html>
