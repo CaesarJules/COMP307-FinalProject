@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <title>Registration - TA Manager | McGill University</title>
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -18,7 +19,7 @@
         <h1>Register</h1>
         <input type="text" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Password">
-        <input type="password" name="password" placeholder="Confirm Password">
+        <input type="password" name="confirm_password" placeholder="Confirm Password">
         <input id="register-btn" class="submit-btn" type="submit" value="Register">
       </form>
 
@@ -39,5 +40,24 @@
 
 </body>
 
+<script>
+  function logSubmit(event) {
+    event.preventDefault();
+    var email = document.getElementById('login-form').elements['email'].value;
+    var password = document.getElementById('login-form').elements['password'].value;
+    var confirm = document.getElementById('login-form').elements['confirm_password'].value;
+    var request = new XMLHttpRequest();
+    request.open('POST', 'https://www.cs.mcgill.ca/~aphila/cgi-bin/register.py');
+    request.onload = function(){
+      window.location.href = "https://www.cs.mcgill.ca/~aphila/COMP307-FinalProject/pages/dashboard.html";
+    }
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.send("email="+email+"&password="+password+"&confirm="+confirm);
+  }
+
+  const form = document.getElementById('login-form');
+  form.addEventListener('submit', logSubmit);
+
+</script>
 </html>
 
