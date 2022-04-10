@@ -157,21 +157,26 @@ a, a:visited, a:hover{
     border-radius: 10px;
 }
 .global-sidebar {
-    width: 17%;
+    width: 22%;
     float: left;
     margin-right: 3%;
 }
 .global-main {
-    width: 80%;
+    width: 75%;
     float: left;
 }
-.global-sidebar dt, dd {
+.global-sidebar button {
+    width: 100%;
+    text-align: left;
+    padding-left: 10%;
     padding: 4%;
+    border: 0;
+    background: none;
 }
 .global-sidebar i {
     margin-left: 2%;
 }
-.global-sidebar dt:hover, dd:hover, .selected-task{
+.global-sidebar button:hover, #admin_b3, #sysop_b1{
     background-color: #f4f4f4;
 }
 table{
@@ -181,8 +186,11 @@ table{
 }
 th, td{
     border-bottom: 1px solid #bbbbbb;
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
     text-align: left;   
+}
+.manage-users i {
+    right: 0;
 }
 .course-btn {
     background-color: #000000;
@@ -218,7 +226,45 @@ th, td{
 .dropdown-content a:hover {
     background-color: #ED1B2F;
 }
-
+.ta-admin, .sysop {
+    display: none;
+}
+.course-history, .manage-users {
+    display: block;
+}
+#edit-icon {
+    width: 30%;
+    float: left;
+    cursor: pointer;
+}
+#edit-options {
+    width: 30%;
+    float: right;
+    display: none;
+}
+#manage-users-header {
+    width: 100%;
+    padding: 3% 0;
+}
+#manage-users-header form{
+    width: 90%;
+    float: left;
+}
+#manage-users-header button{
+    width: 10%;
+    border: 0;
+    padding: 2% 0;
+    cursor: pointer;
+    text-align: center;
+    float: right;
+    border-radius: 15px;
+    color: white;
+    background-color: #000000;  
+}
+#manage-users-header button:hover {
+    color: #000000;
+    background-color: #ED1B2F;
+}
 .footer {
     width: 100%;
     height: 5vh;

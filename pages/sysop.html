@@ -30,46 +30,57 @@
     <div class="header"></div>
 
     <div class="global-container">
+
         <div class="global-sidebar">
-            <dl>
-                <!--
-                <dt>Coffee</dt>
-                <dd>Black hot drink</dd>
-                <dt>Milk</dt>
-                <dd>White cold drink</dd>    
-                -->
-                <dt onclick="location.href='javascript:void(0)';" class="selected-task">Manage users</dt>
-                <dt onclick="location.href='javascript:void(0)';" >Import prof + course</dt>
-                <dt onclick="location.href='javascript:void(0)';" >Manual add prof + course</dt>   
-            </dl>
+            <button class="sidebar-btn" id="sysop_b1" onclick="return update_page('sysop_b1')">Manage users</button>
+            <button class="sidebar-btn" id="sysop_b2" onclick="return update_page('sysop_b2')">Import prof + course</button>
+            <button class="sidebar-btn" id="sysop_b3" onclick="return update_page('sysop_b3')">Manual add prof + course</button>    
         </div>
+
         <div class="global-main">
-            <div id="manage-users">
-                <h1>Manage Users</h1>
-                <form>
+            
+            <h1>Manage Users</h1>
+            <div class="sysop manage-users">
+                <div id="manage-users-header">
+                    <form>
                     <input id="search-user" type="search" name="search-user" placeholder="Search">
-                </form>
-                <table>
-                    <tr>
-                      <th>
-                        <input type="checkbox" id="select-all" name="select" value="all-selected">
-                        <label for="select-all">Username</label><br>
-                      </th>
-                      <th>Roles</th>
-                      <th>Course</th>
-                      <th>Semester</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="checkbox" id="selected-id" name="select" value="selected-username">
-                            <label for="selected-id">Jondoe</label><br>
-                        </td>
-                        <td>Professor, TA administrator, System operator</td>
-                        <td>COMP 303</td>
-                        <td>Summer 2022</td>
-                    </tr>
-                  </table>
+                    </form>
+                    <button onclick="location.href = 'register.html';" >Add user</button>
+                </div>
+                <div>
+                    <table>
+                        <tr>
+                        <th>Username</th>
+                        <th>Roles</th>
+                        <th>Course</th>
+                        <th>Semester</th>
+                        <th></th>
+                        </tr>
+                        <tr>
+                            <td>Jondoe</td>
+                            <td>Professor, TA administrator, System operator</td>
+                            <td>COMP 303</td>
+                            <td>Summer 2022 </td>
+                            <td>
+                                <div id="edit-icon" >
+                                    <i onclick="edit_options()" class="fa-solid fa-pen-to-square"></i>
+                                </div>                            
+                                <div id="edit-options" >
+                                    <a href="register.html"><font color="black">Edit</font></a> <br></br>
+                                    <a href="#"><font color="red">Delete</font></a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
+            <div class="sysop import-prof">
+                <p>Import prof + course</p>
+            </div>
+            <div class="sysop add-prof">
+                <p>Manual add prof + course</p>
+            </div>
+            
         </div>
     </div>
 
@@ -82,6 +93,39 @@
         </div>
     </div>
     
+    <script>
+        function edit_options(){
+            console.log(document.getElementById("edit-options").style.display)
+            let curr = document.getElementById("edit-options");
+            if (curr.style.display !== 'block'){
+                curr.style.display = 'block';
+            }else{
+                curr.style.display = 'none';
+            }     
+        }
+
+        function update_page(id){
+            let menus = document.getElementsByClassName("sidebar-btn");
+            let menu_id = {
+                'sysop_b1':'manage-users',
+                'sysop_b2':'import-prof',
+                'sysop_b3':'add-prof'
+            }
+            
+            for(let i=0; i<menus.length; i++){
+                main = document.getElementsByClassName(menu_id[menus[i].id]);
+                if (menus[i].id !== id){
+                    menus[i].style.backgroundColor="white";
+                    main[0].style.display = "none"
+                }else{
+                    menus[i].style.backgroundColor="#f4f4f4";
+                    main[0].style.display = "block"
+                }              
+            }
+
+            return false;
+        }
+    </script>
 </body>
 
 </html>

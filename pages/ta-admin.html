@@ -31,24 +31,21 @@
 
     <div class="global-container">
         <div class="global-sidebar">
-            <dl>
-                <!--
-                <dt>Coffee</dt>
-                <dd>Black hot drink</dd>
-                <dt>Milk</dt>
-                <dd>White cold drink</dd>    
-                -->
-                <dt onclick="location.href='javascript:void(0)';" >TA info/history</dt>
-                <dt onclick="location.href='javascript:void(0)';" >Import TA cohort</dt>
-                <dt onclick="location.href='javascript:void(0)';" class="selected-task" >Course TA history</dt>   
-                <dt onclick="location.href='javascript:void(0)';" >Add TA to Course</dt>
-                <dt onclick="location.href='javascript:void(0)';" >Remove TA from Course</dt> 
-            </dl>
+            <button class="sidebar-btn" id="admin_b1" onclick="return update_page('admin_b1')">TA info/history</button>
+            <button class="sidebar-btn" id="admin_b2" onclick="return update_page('admin_b2')">Import TA cohort</button>
+            <button class="sidebar-btn" id="admin_b3" onclick="return update_page('admin_b3')">Course TA history</button>
+            <button class="sidebar-btn" id="admin_b4" onclick="return update_page('admin_b4')">Add TA to Course</button>
+            <button class="sidebar-btn" id="admin_b5" onclick="return update_page('admin_b5')">Remove TA from Course</button>     
         </div>
-        <div class="global-main">
-            <div id="ta-admin">
-                <h1>TA Administration</h1>
-
+        <div class="global-main">      
+            <h1>TA Administration</h1>
+            <div class="ta-admin ta-history">
+                <p>TA history</p>
+            </div>
+            <div class="ta-admin add-course">
+                <p>Add course</p>
+            </div>
+            <div class="ta-admin course-history">
                 <div class="dropdown">
                     <button class="course-btn">Course</button>
                     <div class="dropdown-content">
@@ -70,8 +67,15 @@
                         <td>Fall 2008</td>
                         <td>Prof. Todd Lebeau</td>
                     </tr>
-                  </table>
+                </table>
             </div>
+            <div class="ta-admin remove-course">
+                <p>Remove course</p>
+            </div>
+            <div class="ta-admin import-cohort">
+                <p>Import cohort</p>
+            </div>
+            
         </div>
     </div>
 
@@ -83,6 +87,35 @@
             &copy; Lilia Haché, Adrien Philardeau, César Niyonkuru
         </div>
     </div>
+
+    <script>
+        function update_page(id){
+            let menus = document.getElementsByClassName("sidebar-btn");
+            let menu_id = {
+                'admin_b1':'ta-history',
+                'admin_b2':'add-course',
+                'admin_b3':'course-history',
+                'admin_b4':'remove-course',
+                'admin_b5':'import-cohort'
+            }
+            
+            for(let i=0; i<menus.length; i++){
+                main = document.getElementsByClassName(menu_id[menus[i].id]);
+                if (menus[i].id !== id){
+                    menus[i].style.backgroundColor="white";
+                    main[0].style.display = "none"
+                }else{
+                    menus[i].style.backgroundColor="#f4f4f4";
+                    main[0].style.display = "block"
+                }
+                
+            }
+
+
+
+            return false;
+        }
+    </script>
     
 </body>
 
