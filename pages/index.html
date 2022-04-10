@@ -59,6 +59,9 @@
         if (htmlObject.getElementsByTagName("h2")[0].innerHTML.trim() === "True"){
           window.location.href = "https://www.cs.mcgill.ca/~aphila/COMP307-FinalProject/pages/dashboard.html";
         }
+        else{
+          //make login box red or display error message
+        }
       }
       request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       request.send("email="+email+"&password="+password);
