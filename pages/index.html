@@ -20,8 +20,9 @@
       <div>
         <form id="login-form">
           <h1>TA Management System</h1>
-          <input type="email" name="email" placeholder="Email">
-          <input type="password" name="password" placeholder="Password">
+          <p id="error-log" style="display: none; color:red;">Login Failure! Please enter a correct username and password</p>
+          <input class="login-box" type="email" name="email" placeholder="Email">
+          <input class="login-box" type="password" name="password" placeholder="Password">
           <input id="login-btn" class="submit-btn" type="submit" value="Login">
         </form>
         
@@ -57,10 +58,20 @@
         htmlObject.innerHTML = data;
         console.log(htmlObject.getElementsByTagName("h2")[0].innerHTML.trim());
         if (htmlObject.getElementsByTagName("h2")[0].innerHTML.trim() === "True"){
+          // Update first the error messages in case the previous login failed!!!
+          document.getElementsById("error-log").style.display = "none";
+          loginCredentials = document.getElementsByClassName("login-box");
+          for(let i=0; i<loginCredentials.length; i++){
+            loginCredentials[i].style.border = "";
+          }
           window.location.href = "https://www.cs.mcgill.ca/~aphila/COMP307-FinalProject/pages/dashboard.html";
         }
         else{
-          //make login box red or display error message
+          document.getElementsById("error-log").style.display = "block";
+          loginCredentials = document.getElementsByClassName("login-box");
+          for(let i=0; i<loginCredentials.length; i++){
+            loginCredentials[i].style.border = "1px solid #ED1B2F";
+          }
         }
       }
       request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
