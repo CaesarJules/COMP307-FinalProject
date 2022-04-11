@@ -33,14 +33,15 @@
 
         <div class="global-sidebar">
             <button class="sidebar-btn" id="sysop_b1" onclick="return update_page('sysop_b1')">Manage users</button>
-            <button class="sidebar-btn" id="sysop_b2" onclick="return update_page('sysop_b2')">Import professors and courses from CSV</button>
-            <button class="sidebar-btn" id="sysop_b3" onclick="return update_page('sysop_b3')">Manually add professors and courses</button>    
+            <button class="sidebar-btn" id="sysop_b2" onclick="return update_page('sysop_b2')">Import Course from CSV</button>
+            <button class="sidebar-btn" id="sysop_b3" onclick="return update_page('sysop_b3')">Manually Add a Course</button>    
         </div>
 
         <div class="global-main">
             
-            <h1>Manage Users</h1>
+            <h1>Sysop</h1>
             <div class="sysop manage-users">
+                <h3>Manage Users</h3>
                 <div id="manage-users-header">
                     <form>
                     <input id="search-user" type="search" name="search-user" placeholder="Search">
@@ -75,18 +76,56 @@
                 </div>
             </div>
             <div class="sysop import-prof">
-                <h3>Import from CSV</h3>
-                <form id="import-prof-course">
-                    <select name="prof-or-course" id="prof-or-course">
-                        <option value="profs">Import professors</option>
-                        <option value="courses">Import courses</option>
-                    </select>
+                <h3>Import courses from CSV</h3>
+                <form id="import-course">
                     <input type="file" id="sysop-filepicker" accept=".csv">
                     <input type="submit" id="submit-file" value="Import">
                 </form>
             </div>
             <div class="sysop add-prof">
-                <p>Manual add prof + course</p>
+                <h3>Manually Add a Course</h3>
+                <form id="manual-add-course-form">
+                    <table>
+                        <tbody>
+                          <tr>
+                            <td>Term</td>
+                            <td>
+                                <input type="radio" id="fall" name="term" value="fall">
+                                <label for="fall">Fall</label>
+                                <input type="radio" id="winter" name="term" value="winter">
+                                <label for="winter">Winter</label>
+                                <input type="radio" id="summer" name="term" value="summer">
+                                <label for="summer">Summer</label>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Year</td>
+                            <td>
+                                <input type="number" min="1900" max="2099" step="1" value="2022" required>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Course Number</td>
+                            <td>
+                                <input id="course-num" type="text" placeholder="COMP307" required>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Course Name</td>
+                            <td>
+                                <input id="course-name" type="text" placeholder="Web Development" required>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Instructor Name</td>
+                            <td>
+                                <input id="instructor-name" type="text" placeholder="Joseph Vybihal" required>
+                            </td>
+                          </tr>
+                        </tbody>
+                        </table>
+                        <button id="submit-course" type="submit">Add Course</button>
+                </form>
             </div>
             
         </div>
