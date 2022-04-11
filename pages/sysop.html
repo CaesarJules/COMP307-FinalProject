@@ -33,8 +33,8 @@
 
         <div class="global-sidebar">
             <button class="sidebar-btn" id="sysop_b1" onclick="return update_page('sysop_b1')">Manage users</button>
-            <button class="sidebar-btn" id="sysop_b2" onclick="return update_page('sysop_b2')">Import prof + course</button>
-            <button class="sidebar-btn" id="sysop_b3" onclick="return update_page('sysop_b3')">Manual add prof + course</button>    
+            <button class="sidebar-btn" id="sysop_b2" onclick="return update_page('sysop_b2')">Import professors and courses from CSV</button>
+            <button class="sidebar-btn" id="sysop_b3" onclick="return update_page('sysop_b3')">Manually add professors and courses</button>    
         </div>
 
         <div class="global-main">
@@ -75,7 +75,15 @@
                 </div>
             </div>
             <div class="sysop import-prof">
-                <p>Import prof + course</p>
+                <h3>Import from CSV</h3>
+                <form id="import-prof-course">
+                    <select name="prof-or-course" id="prof-or-course">
+                        <option value="profs">Import professors</option>
+                        <option value="courses">Import courses</option>
+                    </select>
+                    <input type="file" id="sysop-filepicker" accept=".csv">
+                    <input type="submit" id="submit-file" value="Import">
+                </form>
             </div>
             <div class="sysop add-prof">
                 <p>Manual add prof + course</p>
