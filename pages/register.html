@@ -1,46 +1,80 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Registration - TA Manager | McGill University</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Registration - TA Manager | McGill University</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
 </head>
 
 <body>
   <div class="cs-logo">
-    <<a href="index.html"><img src="../assets/McGill-CS.png" alt="McGill Logo"></a>
+    <a href="index.html"><img src="../assets/McGill-CS.png" alt="McGill Logo"></a>
   </div>
 
   <div class="header"></div>
 
   <div class="login-container">
-      
-      <form id="login-form">
-        <h1>Register</h1>
-        <input type="text" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirm_password" placeholder="Confirm Password">
-        <input id="register-btn" class="submit-btn" type="submit" value="Register">
-      </form>
 
-      <div class="form-link">
-        <a href="index.html">Back to Login</a>
-      </div>
-    
+    <form id="login-form">
+      <h1>Register</h1>
+
+      <input type="text" name="fname" placeholder="First name">
+      <input type="text" name="lname" placeholder="Last name">
+      <input type="number" name="mcgill-id" placeholder="McGill ID number (9-digit)">
+      <span style="padding: 0%;" >
+        <select name="course" class="selectpicker" data-live-search="true" >
+          <option value="" selected disabled><font color:black>Course</font></option>
+          <option value="comp307">COMP 307</option>
+          <option value="comp303">COMP 303</option>
+          <option value="comp421">COMP 421</option>
+        </select>
+      </span>
+      <span style="padding: 0%;">
+        <select name="role" class="selectpicker" multiple data-live-search="true" >
+          <option value="" selected disabled><font color:black>Role</font></option>
+          <option value="student">Student</option>
+          <option value="professor">Professor</option>
+          <option value="ta-admin">TA administrator</option>
+          <option value="ta">Teaching assistant</option>
+          <option value="sysop">System operator</option>
+        </select>
+      </span>
+      
+      <input type="email" name="email" placeholder="Username (McGill Email)">
+      <input type="password" name="password" placeholder="Password">
+      <input type="password" name="confirm_password" placeholder="Confirm Password">
+
+      <input id="register-btn" class="submit-btn" type="submit" value="Register">
+    </form>
+
+    <div class="form-link">
+      <a href="index.html">Back to Login</a>
+    </div>
+
   </div>
 
   <div class="footer">
-      <div class="mcgill">
-          McGill University
-      </div>
-      <div class="copyright">
-          &copy; Lilia Haché, Adrien Philardeau, César Niyonkuru
-      </div>
+    <div class="mcgill">
+      McGill University
+    </div>
+    <div class="copyright">
+      &copy; Lilia Haché, Adrien Philardeau, César Niyonkuru
+    </div>
   </div>
 
 </body>
 
 <script>
+  $('select').selectpicker();
+
   function logSubmit(event) {
     event.preventDefault();
     var email = document.getElementById('login-form').elements['email'].value;
@@ -48,16 +82,16 @@
     var confirm = document.getElementById('login-form').elements['confirm_password'].value;
     var request = new XMLHttpRequest();
     request.open('POST', 'https://www.cs.mcgill.ca/~aphila/cgi-bin/register.py');
-    request.onload = function(){
+    request.onload = function () {
       window.location.href = "https://www.cs.mcgill.ca/~aphila/COMP307-FinalProject/pages/dashboard.html";
     }
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    request.send("email="+email+"&password="+password+"&confirm="+confirm);
+    request.send("email=" + email + "&password=" + password + "&confirm=" + confirm);
   }
 
   const form = document.getElementById('login-form');
   form.addEventListener('submit', logSubmit);
 
 </script>
-</html>
 
+</html>

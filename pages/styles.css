@@ -63,20 +63,19 @@ a, a:visited, a:hover{
     margin: 20px;
 }
 
-#login-form input {
+#login-form input, span {
     display: block;
-    margin: 12px auto 12px auto;
+    margin: 12px auto;
     width: 50%;
     padding: 7px;
 }
-
 .submit-btn {
     background-color: #ED1B2F;
     border: none;
+    border-radius: 15px;
     color: white;
     cursor: pointer;
 }
-
 .form-link {
     width: max-content;
     margin: auto;
@@ -93,7 +92,6 @@ a, a:visited, a:hover{
     background-color: #F4F4F4;
     margin: 2%;
 }
-
 .task a {
     color:black;
 }
@@ -103,7 +101,6 @@ a, a:visited, a:hover{
     font-size: 4vh;
     padding: 5px 0px;
 }
-
 .task:hover {
     cursor: pointer;
     background-color: #ED1B2F;
@@ -112,7 +109,11 @@ a, a:visited, a:hover{
     font-size: 100px;
     padding:10%;
 }
-
+/*
+#admin-dash, #mgnt-dash, #sysop-dash{
+    display: none;
+}
+*/
 #rate-container, .global-container{
     width:80%;
     margin:10% auto;

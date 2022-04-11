@@ -30,7 +30,7 @@
     <div class="header"></div>
 
     <div class="dashboard-container">
-        <div class="task" >
+        <div id="admin-dash" class="task" >
             <a href="ta-admin.html">
                 <div class="task-name">
                     <p>TA Administration</p>
@@ -40,7 +40,7 @@
                 </div>
             </a>
         </div>
-        <div class="task">
+        <div id="mgnt-dash" class="task">
             <a href="ta-mgnt.html">
                 <div class="task-name">
                     <p>TA Management</p>
@@ -50,7 +50,7 @@
                 </div>
             </a>
         </div>
-        <div class="task">
+        <div id="rating-dash" class="task">
             <a href="rate-search.html">
                 <div class="task-name">
                     <p>Rate a TA</p>
@@ -60,7 +60,7 @@
                 </div>
             </a>
         </div>
-        <div class="task">
+        <div id="sysop-dash" class="task">
             <a href="sysop.html">
                 <div class="task-name">
                     <p>Sysop Tasks</p>
@@ -81,6 +81,35 @@
             &copy; Lilia Haché, Adrien Philardeau, César Niyonkuru
         </div>
     </div>
+
+    <script>
+        /*
+        //Define all the roles except student
+        let roles = ['professor','ta-admin','ta', 'sysop'];
+        //TODO: Get from the backend the currently logged-in account roles
+        let curr_roles = ['sysop', 'professor', 'ta-admin'];
+
+        let dashboard_id = {
+            'ta-admin':'admin-dash',
+            'professor':'mgnt-dash',
+            'ta':'mgnt-dash',
+            'sysop':'sysop-dash'
+        }
+            
+        for(let i=0; i<roles.length; i++){
+            if (curr_roles.includes(roles[i])){
+                document.getElementById(dashboard_id[roles[i]]).style.display = "block";
+            } else{
+                if((roles[i]==='professor' && curr_roles.includes('ta')) || 
+                    (roles[i]==='ta' && curr_roles.includes('professor'))){
+                        continue
+                    }
+                document.getElementById(dashboard_id[roles[i]]).style.display = "none";
+            }            
+        }
+        */
+
+    </script>
 
 </body>
 
