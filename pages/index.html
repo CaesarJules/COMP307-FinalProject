@@ -59,7 +59,8 @@
         console.log(htmlObject.getElementsByTagName("h2")[0].innerHTML.trim());
         if (htmlObject.getElementsByTagName("h2")[0].innerHTML.trim() === "True"){
           // Update first the error messages in case the previous login failed!!!
-          document.getElementsById("error-log").style.display = "none";
+          console.log("got here!");
+          document.getElementById("error-log").style.display = "none";
           loginCredentials = document.getElementsByClassName("login-box");
           for(let i=0; i<loginCredentials.length; i++){
             loginCredentials[i].style.border = "";
@@ -67,7 +68,7 @@
           window.location.href = "https://www.cs.mcgill.ca/~aphila/COMP307-FinalProject/pages/dashboard.html";
         }
         else{
-          document.getElementsById("error-log").style.display = "block";
+          document.getElementById("error-log").style.display = "block";
           loginCredentials = document.getElementsByClassName("login-box");
           for(let i=0; i<loginCredentials.length; i++){
             loginCredentials[i].style.border = "1px solid #ED1B2F";
