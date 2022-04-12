@@ -31,49 +31,73 @@
 
     <div class="global-container">
         <div class="global-sidebar">
-            <button class="sidebar-btn" id="admin_b1" onclick="return update_page('admin_b1')">TA info/history</button>
-            <button class="sidebar-btn" id="admin_b2" onclick="return update_page('admin_b2')">Import TA cohort</button>
-            <button class="sidebar-btn" id="admin_b3" onclick="return update_page('admin_b3')">Course TA history</button>
-            <button class="sidebar-btn" id="admin_b4" onclick="return update_page('admin_b4')">Add TA to Course</button>
-            <button class="sidebar-btn" id="admin_b5" onclick="return update_page('admin_b5')">Remove TA from Course</button>     
+            <button class="sidebar-btn" id="admin_b1" onclick="return update_page('admin_b1')">Import TA Cohort</button>
+            <button class="sidebar-btn" id="admin_b2" onclick="return update_page('admin_b2')">TA Database</button>
+            <button class="sidebar-btn" id="admin_b3" onclick="return update_page('admin_b3')">Add TA to Course</button>     
         </div>
         <div class="global-main">      
             <h1>TA Administration</h1>
-            <div class="ta-admin ta-history">
-                <p>TA history</p>
+            <div class="ta-admin import-cohort">
+                <h3>Import TA cohort</h3>
+                <p>This will update the database with the new TA Cohort and Course Quota.</p>
+                <button id="import-ta-cohort">Import TA Cohort</button>
+            </div>
+            <div class="ta-admin ta-database">
+                <h3>TA Database</h3>
             </div>
             <div class="ta-admin add-course">
-                <p>Add course</p>
-            </div>
-            <div class="ta-admin course-history">
-                <div class="dropdown">
-                    <button class="course-btn">Course</button>
-                    <div class="dropdown-content">
-                      <a href="#">COMP 307</a>
-                      <a href="#">COMP 521</a>
-                    </div>
-                </div>
-
-                <table>
-                    <tr>
-                      <th>TA Name</th>
-                      <th>Course Name</th>
-                      <th>Semester</th>
-                      <th>Professor</th>
-                    </tr>
-                    <tr>
-                        <td>Li Wang</td>
-                        <td>COMP 521</td>
-                        <td>Fall 2008</td>
-                        <td>Prof. Todd Lebeau</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="ta-admin remove-course">
-                <p>Remove course</p>
-            </div>
-            <div class="ta-admin import-cohort">
-                <p>Import cohort</p>
+                <h3>Manually Add a TA to a Course</h3>
+                <form id="manual-add-ta-form">
+                    <table>
+                        <tbody>
+                          <tr>
+                            <td>Term</td>
+                            <td>
+                                <input type="radio" id="fall" name="term" value="fall" required>
+                                <label for="fall">Fall</label>
+                                <input type="radio" id="winter" name="term" value="winter">
+                                <label for="winter">Winter</label>
+                                <input type="radio" id="summer" name="term" value="summer">
+                                <label for="summer">Summer</label>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Year</td>
+                            <td>
+                                <input type="number" min="1900" max="2099" step="1" value="2022" required>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Course Number</td>
+                            <td>
+                                <input id="course-num" type="text" placeholder="COMP307" required>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>TA Name</td>
+                            <td>
+                                <input id="instructor-name" type="text" placeholder="Joseph Vybihal" required>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Student ID</td>
+                            <td>
+                                <input id="student-id" type="text" placeholder="123456789" required>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Assigned Hours</td>
+                            <td>
+                                <input type="radio" id="ninety" name="hours" value="90" required>
+                                <label for="ninety">90</label>
+                                <input type="radio" id="hundredeighty" name="hours" value="180">
+                                <label for="ninety">180</label>
+                            </td>
+                          </tr>
+                        </tbody>
+                        </table>
+                        <button id="submit-course" type="submit">Add TA to Course</button>
+                </form>
             </div>
             
         </div>
@@ -92,13 +116,10 @@
         function update_page(id){
             let menus = document.getElementsByClassName("sidebar-btn");
             let menu_id = {
-                'admin_b1':'ta-history',
-                'admin_b2':'add-course',
-                'admin_b3':'course-history',
-                'admin_b4':'remove-course',
-                'admin_b5':'import-cohort'
+                'admin_b1':'import-cohort',
+                'admin_b2':'ta-database',
+                'admin_b3':'add-course'
             }
-            
             for(let i=0; i<menus.length; i++){
                 main = document.getElementsByClassName(menu_id[menus[i].id]);
                 if (menus[i].id !== id){
@@ -110,9 +131,6 @@
                 }
                 
             }
-
-
-
             return false;
         }
     </script>

@@ -58,7 +58,7 @@ a, a:visited, a:hover{
     width: 30%;
 }
 
-#login-form h1, p {
+#login-form h1 {
     text-align: center;
     margin: 20px;
 }
@@ -233,6 +233,17 @@ th, td{
 .course-history, .manage-users {
     display: block;
 }
+
+.import-cohort button{
+    border: 0;
+    padding: 10px 15px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 15px;
+    color: white;
+    background-color: #000000;  
+}
+
 #edit-icon {
     width: 30%;
     float: left;
@@ -279,13 +290,13 @@ th, td{
     background-color: #000000;
 }
 
-#manual-add-course-form td{
+#manual-add-course-form td, #manual-add-ta-form td{
     padding-right:6em;
     padding-bottom: 2em;
     border-bottom: none;
 }
 
-#manual-add-course-form button {
+#manual-add-course-form button, #manual-add-ta-form button{
     margin-left: 1.5rem;
     border: 0;
     padding: 10px 20px;

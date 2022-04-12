@@ -77,7 +77,7 @@
                 <h3>Import courses from CSV</h3>
                 <form id="import-course">
                     <input type="file" id="sysop-filepicker" accept=".csv">
-                    <input type="submit" id="submit-file" value="Import">
+                    <button type="submit" id="submit-file">Import</button>
                 </form>
             </div>
             <div class="sysop add-prof">
@@ -88,7 +88,7 @@
                           <tr>
                             <td>Term</td>
                             <td>
-                                <input type="radio" id="fall" name="term" value="fall">
+                                <input type="radio" id="fall" name="term" value="fall" required>
                                 <label for="fall">Fall</label>
                                 <input type="radio" id="winter" name="term" value="winter">
                                 <label for="winter">Winter</label>
