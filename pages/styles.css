@@ -119,6 +119,11 @@ a, a:visited, a:hover{
     margin:10% auto;
 }
 
+.ta-container {
+    width:60%;
+    margin:10% auto;
+}
+
 #rate-container h3 {
     margin-bottom: 10px;
 }
@@ -150,7 +155,7 @@ a, a:visited, a:hover{
     width: 50%;
 }
 
-#search-ta, #search-user {
+#search-ta-course, #search-user {
     padding: 10px;
     width: 30%;
     margin: auto;
@@ -184,6 +189,7 @@ table{
     margin-top: 4%;
     border-collapse: collapse;
     font-size: medium;
+    width: 100%;
 }
 th, td{
     border-bottom: 1px solid #bbbbbb;
@@ -244,7 +250,39 @@ th, td{
     background-color: #000000;  
 }
 
-#edit-icon {
+#ta-admin-header {
+    width: 100%;
+    padding: 3% 0;
+}
+#ta-admin-header input{
+    width: 25%;
+    float: left;
+}
+#ta-admin-header button{
+    border: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    float: right;
+    border-radius: 15px;
+    color: white;
+    background-color: #000000;  
+    margin:0 10px;
+}
+#ta-admin-header button:hover {
+    color: #000000;
+    background-color: #ED1B2F;
+}
+
+#ta-admin-header input, #ta-admin-header button {
+    display: inline-block;
+}
+
+#ta-database {
+    background-color: #f4f4f4;
+}
+
+#edit-icon, #ta-icon {
     width: 30%;
     float: left;
     cursor: pointer;
