@@ -47,7 +47,7 @@
                     <button onclick="location.href = 'register.html';" >Add user</button>
                 </div>
                 <div>
-                    <table>
+                    <table id="table">
                         <tr>
                         <th>Username</th>
                         <th>Roles</th>
@@ -55,6 +55,7 @@
                         <th>Semester</th>
                         <th></th>
                         </tr>
+
                         <tr>
                             <td>Jondoe</td>
                             <td>Professor, TA administrator, System operator</td>
@@ -70,6 +71,7 @@
                                 </div>
                             </td>
                         </tr>
+                        
                     </table>
                 </div>
             </div>
@@ -183,13 +185,27 @@
             var data = request.responseText;
             var htmlObject = document.createElement('div');
             htmlObject.innerHTML = data;
-            console.log(data);
-            users = htmlObject.getElementsByTagName("h2");
-            console.log(users)
-            for (var i = 0; i < users.length; i++){
-                console.log(users[i]);
+            //console.log(data);
+            tags = htmlObject.getElementsByTagName("h2");
+            //console.log(users);
+            table = document.getElementById('table');
+            var users = [];
+            for (var i = 0; i < tags.length; i++){
+                users.push(tags[i].innerHTML.split(','));
             }
+            console.log(users)
+            var htmlObject = document.createElement('div');
+            htmlObject.innerHTML = data;
+
+            for (var i = 0; i < users.length; i++){
+                var newRow = table.insertRow(table.length);
+                for(var j=0; j<users[i].length; j++){
+                    var cell = newRow.insertCell(j);
+                    cell.innerHTML = users[i][j];
+                } 
+            }           
         }
+        
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         request.send();
 
