@@ -172,6 +172,25 @@
 
             return false;
         }
+
+        var request = new XMLHttpRequest();
+        request.open('GET', 'https://www.cs.mcgill.ca/~aphila/cgi-bin/sysop.py');
+        request.onload = function(){
+            var data = request.responseText;
+            var htmlObject = document.createElement('div');
+            htmlObject.innerHTML = data;
+            console.log(data);
+            users = htmlObject.getElementsByTagName("h2");
+            console.log(users)
+            for (var i = 0; i < users.length; i++){
+                console.log(users[i]);
+            }
+        }
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        request.send();
+
+
+
     </script>
 </body>
 
