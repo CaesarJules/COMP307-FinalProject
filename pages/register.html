@@ -46,7 +46,7 @@
         </select>
       </span>
       <span style="padding: 0%;">
-        <select name="role" class="selectpicker" multiple data-live-search="true" >
+        <select name="role" class="selectpicker" data-live-search="true" >
           <option value="" selected disabled><font color:black>Role</font></option>
           <option value="student">Student</option>
           <option value="professor">Professor</option>
@@ -88,13 +88,24 @@
     var email = document.getElementById('login-form').elements['email'].value;
     var password = document.getElementById('login-form').elements['password'].value;
     var confirm = document.getElementById('login-form').elements['confirm_password'].value;
+
+    var fname = document.getElementById('login-form').elements['fname'].value;
+    var lname = document.getElementById('login-form').elements['lname'].value;
+    var id = document.getElementById('login-form').elements['mcgill-id'].value;
+
+    var course = document.getElementById('login-form').elements['course'].value;
+    var term = document.getElementById('login-form').elements['term'].value;
+    var role = document.getElementById('login-form').elements['role'].value;
+    
     var request = new XMLHttpRequest();
     request.open('POST', 'https://www.cs.mcgill.ca/~aphila/cgi-bin/register.py');
     request.onload = function () {
       window.location.href = "https://www.cs.mcgill.ca/~aphila/COMP307-FinalProject/pages/dashboard.html";
     }
+    console.log(fname, lname, id, course, term, role, email, password, confirm)
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    request.send("email=" + email + "&password=" + password + "&confirm=" + confirm);
+    request.send("fname=" + fname + "&lname=" + lname + "&id=" + id + "&course=" + course + 
+    "&term=" + term + "&role=" + role + "&email=" + email + "&password=" + password + "&confirm=" + confirm);
   }
 
   const form = document.getElementById('login-form');
