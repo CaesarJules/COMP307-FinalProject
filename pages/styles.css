@@ -247,8 +247,8 @@ th, td{
     width: 100%;
     padding: 3% 0;
 }
-#manage-users-header form{
-    width: 90%;
+#manage-users-header input{
+    width: 25%;
     float: left;
 }
 #manage-users-header button{

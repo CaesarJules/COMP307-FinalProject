@@ -43,9 +43,7 @@
             <div class="sysop manage-users">
                 <h3>Manage Users</h3>
                 <div id="manage-users-header">
-                    <form>
-                    <input id="search-user" type="search" name="search-user" placeholder="Search">
-                    </form>
+                    <input oninput="return update_content()" id="search-user" type="search" name="search-user" placeholder="Search">
                     <button onclick="location.href = 'register.html';" >Add user</button>
                 </div>
                 <div>
@@ -141,6 +139,12 @@
     </div>
     
     <script>
+        function update_content(){
+            console.log(document.getElementById("search-user").value);
+
+            return false;
+        }
+
         function edit_options(){
             console.log(document.getElementById("edit-options").style.display)
             let curr = document.getElementById("edit-options");
