@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TA Manager | McGill University</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="top-banner">
+        <div class="logout-icon">
+            <a href="javascript:void(0);" id="logout" onclick="">
+                <i class="fa-solid fa-right-from-bracket"></i> Log Out
+            </a>
+        </div>
+
+        <div class="user-icon">
+            <i class="fa-solid fa-user-check"></i> jules.niyonkuru@mail.mcgill.ca
+        </div>
+    </div>
+
+    <div class="cs-logo">
+        <a href="dashboard.html"><img src="../assets/McGill-CS.png" alt="McGill Logo"></a>
+    </div>
+
+    <div class="header"></div>
+
+    <div class="ta-container" id="ta-detail-container">
+        <div id="ta-detail-header">
+            <table id="ta-detail-name">
+                <tr>
+                    <td><h1>Ada Lovelace</h1></td>
+                    <td >
+                        <button type="submit" id="remove-ta-btn">Read Reviews</button>
+                        <button type="submit" id="remove-ta-btn">Read Performance Logs</button>
+                        <button type="submit" id="remove-ta-btn">Remove TA</button>
+                    </td>
+                </tr>
+            </table>
+            <table class="ta-detail-info">
+                <tr>
+                    <td>
+                        <p>Legal Name: Augusta Ada King</p>
+                        <p>Student ID: 123456789</p>
+                        <p>Email: <a href="mailto:webmaster@example.com">ada.lovelace@mail.mcgill.ca</a></p>
+                        <p>Supervisor: Joseph Vybihal</p>
+                    </td>
+                    <td>
+                        <p>Level: undergrad</p>
+                        <p>Priority: yes</p>
+                        <p>Hours: 90</p>
+                        <p><i class="fa-solid fa-star"></i> 4.2</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div id=ta-detail-students>
+            <h2>Professor Wish Lists</h2>
+            <ul>
+                <li>Joseph Vyhibal</li>
+                <li>Jin Guo</li>
+            </ul>
+            
+        </div>
+
+        <div>
+            <h2>Course History</h2>
+            <p>Click on a course number for more information on the course.</p>
+            <h3>Winter 2022</h3>
+            <table class="ta-courses">
+                <tr>
+                    <th>Course Number</th>
+                    <th>Term</th>
+                    <th>Instructor Name</th>
+                    <th>Quota</th>
+                    <th>Hours</th>
+                </tr>
+                <tr>
+                    <td><a href="#">COMP 303</a></td>
+                    <td>Winter 2022</td>
+                    <td>Jin Guo</td>
+                    <td>35</td>
+                    <td>90</td>
+                </tr>
+            </table>
+            <h3>Past Courses</h3>
+            <table class="ta-courses">
+                <tr>
+                    <th>Course Number</th>
+                    <th>Term</th>
+                    <th>Instructor Name</th>
+                    <th>Quota</th>
+                </tr>
+                <tr>
+                    <td><a href="#">COMP 202</a></td>
+                    <td>Fall 2021</td>
+                    <td>Giulia Aberini</td>
+                    <td>40</td>
+                </tr>
+                <tr>
+                    <td><a href="#">COMP 250</a></td>
+                    <td>Fall 2021</td>
+                    <td>Giulia Aberini</td>
+                    <td>37</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="mcgill">
+            McGill University
+        </div>
+        <div class="copyright">
+            &copy; Lilia Haché, Adrien Philardeau, César Niyonkuru
+        </div>
+    </div>
+    
+</body>
+
+</html>

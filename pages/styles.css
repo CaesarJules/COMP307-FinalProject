@@ -196,6 +196,7 @@ th, td{
     padding: 1rem 1.5rem;
     text-align: left;   
 }
+
 .manage-users i {
     right: 0;
 }
@@ -282,6 +283,26 @@ th, td{
     background-color: #f4f4f4;
 }
 
+#ta-detail-container div{
+    padding: 10px 40px;
+    background-color: #f4f4f4;
+    margin: 10px 0;
+}
+
+.ta-detail-info {
+    font-size: 14px;
+    margin: 0;
+}
+
+.ta-detail-info td{
+    border: none;
+    padding: 0;
+}
+
+.ta-courses {
+    background-color:white;
+}
+
 #edit-icon, #ta-icon {
     width: 30%;
     float: left;
@@ -334,7 +355,7 @@ th, td{
     border-bottom: none;
 }
 
-#manual-add-course-form button, #manual-add-ta-form button{
+#manual-add-course-form button, #manual-add-ta-form button, button{
     margin-left: 1.5rem;
     border: 0;
     padding: 10px 20px;
@@ -343,6 +364,25 @@ th, td{
     border-radius: 15px;
     color: white;
     background-color: #000000;
+}
+
+#ta-detail-name {
+    margin:0;
+    margin-bottom:10px;
+    font-size: 14px;
+}
+
+#ta-detail-name td {
+    padding: 1rem 0;
+}
+
+#ta-detail-name button {
+    float:right;
+}
+
+#remove-ta-btn:hover {
+    float:right;
+    background-color:#ED1B2F;
 }
 
 #manual-add-course-form input {
