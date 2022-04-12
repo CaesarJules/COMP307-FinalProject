@@ -16,7 +16,7 @@ if exists('registry.csv'):
         for line in f.readlines():
             line = line.strip()
             if not line: break
-            stored_email, stored_password = line.split(',')
+            _,_,_,_,_,_,stored_email, stored_password = line.split(',')
             if stored_email == email and stored_password == password:
                 r = True
 
