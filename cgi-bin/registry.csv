@@ -1,4 +1,3 @@
-new@gmail.com,qwer
-user@gmail.com,asdf
-lilia@gmail.com,asdf
-jules@gmail.com,asdf
+firstname,lastname,ID,course,term,role,username,password
+adrien,philardeau,123,COMP307,Winter2022,student,adrien@gmail.com,qwer
+jules,cesar,234,COMP307,Winter2022,TA,jules@gmail.com,qwer
