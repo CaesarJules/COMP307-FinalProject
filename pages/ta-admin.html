@@ -13,7 +13,7 @@
 
     <div class="top-banner">
         <div class="logout-icon">
-            <a href="javascript:void(0);" id="logout" onclick="">
+            <a href="https://www.cs.mcgill.ca/~aphila/COMP307-FinalProject/pages" id="logout" onclick="">
                 <i class="fa-solid fa-right-from-bracket"></i> Log Out
             </a>
         </div>
@@ -90,7 +90,10 @@
             var newRow = table.insertRow(table.length);
             for(var j=0; j<TAs[i].length; j++){
                 var cell = newRow.insertCell(j);
-                cell.innerHTML = TAs[i][j];
+                if (j == 0){
+                    cell.innerHTML = "<a href='ta-detail.html'>" + TAs[i][j] + "</a>";
+                }
+                else cell.innerHTML = TAs[i][j];
             } 
         }           
     }
