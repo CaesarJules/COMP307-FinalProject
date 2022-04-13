@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TA Manager | McGill University</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="top-banner">
+        <div class="logout-icon">
+            <a href="javascript:void(0);" id="logout" onclick="">
+                <i class="fa-solid fa-right-from-bracket"></i> Log Out
+            </a>
+        </div>
+
+        <div class="user-icon">
+            <i class="fa-solid fa-user-check"></i> jules.niyonkuru@mail.mcgill.ca
+        </div>
+    </div>
+
+    <div class="cs-logo">
+        <a href="dashboard.html"><img src="../assets/McGill-CS.png" alt="McGill Logo"></a>
+    </div>
+
+    <div class="header"></div>
+
+    <div class="ta-container" id="ta-form">
+        <div id="ta-form-header">
+            <div>
+                <h1>Add a TA</h1>
+            </div>
+            <div id="go-back-ta">
+                <button onclick="location.href = 'ta-admin.html';" id="go-back-ta-btn">Go Back to TA Administration</button>
+            </div>
+        </div>
+        <form id="manual-add-ta-form">
+            <table>
+                <tbody>
+                    <tr>
+                    <td>Term</td>
+                    <td>
+                        <input type="radio" id="fall" name="term" value="fall" required>
+                        <label for="fall">Fall</label>
+                        <input type="radio" id="winter" name="term" value="winter">
+                        <label for="winter">Winter</label>
+                        <input type="radio" id="summer" name="term" value="summer">
+                        <label for="summer">Summer</label>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>Year</td>
+                    <td>
+                        <input type="number" min="1900" max="2099" step="1" value="2022" required>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>Course Number</td>
+                    <td>
+                        <input id="course-num" type="text" placeholder="COMP307" required>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>TA Name</td>
+                    <td>
+                        <input id="instructor-name" type="text" placeholder="Joseph Vybihal" required>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>Student ID</td>
+                    <td>
+                        <input id="student-id" type="text" placeholder="123456789" required>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>Assigned Hours</td>
+                    <td>
+                        <input type="radio" id="ninety" name="hours" value="90" required>
+                        <label for="ninety">90</label>
+                        <input type="radio" id="hundredeighty" name="hours" value="180">
+                        <label for="ninety">180</label>
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="submit-course" type="submit">Add TA to Course</button>
+    </div>
+
+    <div class="footer">
+        <div class="mcgill">
+            McGill University
+        </div>
+        <div class="copyright">
+            &copy; Lilia Haché, Adrien Philardeau, César Niyonkuru
+        </div>
+    </div>
+    
+</body>
+
+</html>

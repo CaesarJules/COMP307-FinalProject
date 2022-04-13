@@ -124,6 +124,15 @@ a, a:visited, a:hover{
     margin:10% auto;
 }
 
+#ta-admin-container {
+    background-color: #f4f4f4;
+    padding:1em 3em;
+}
+ 
+#ta-database{
+    background-color: white;
+}
+
 #rate-container h3 {
     margin-bottom: 10px;
 }
@@ -251,15 +260,32 @@ th, td{
     background-color: #000000;  
 }
 
-#ta-admin-header {
+#ta-form-header {
+    padding-bottom: 1em;
+    border-bottom: 1px solid #bbbbbb;
+}
+
+#ta-form-header div {
+    display: inline-block;
+}
+
+#go-back-ta{
+    float:right;
+}
+
+#ta-admin-header, #ta-form-header {
     width: 100%;
     padding: 3% 0;
+}
+
+#ta-form-header h1 {
+    margin:0;
 }
 #ta-admin-header input{
     width: 25%;
     float: left;
 }
-#ta-admin-header button{
+#ta-admin-header button, #ta-form-header button{
     border: 0;
     padding: 10px 20px;
     cursor: pointer;
@@ -270,17 +296,13 @@ th, td{
     background-color: #000000;  
     margin:0 10px;
 }
-#ta-admin-header button:hover {
+#ta-admin-header button:hover , #ta-form-header button:hover{
     color: #000000;
     background-color: #ED1B2F;
 }
 
-#ta-admin-header input, #ta-admin-header button {
+#ta-admin-header input, #ta-admin-header button{
     display: inline-block;
-}
-
-#ta-database {
-    background-color: #f4f4f4;
 }
 
 #ta-detail-container div{
@@ -301,6 +323,15 @@ th, td{
 
 .ta-courses {
     background-color:white;
+}
+
+#ta-form {
+    background-color: #f4f4f4;
+    padding: 40px;
+}
+
+#ta-form input {
+    padding: 10px;
 }
 
 #edit-icon, #ta-icon {

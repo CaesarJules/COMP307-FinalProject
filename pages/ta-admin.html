@@ -29,14 +29,14 @@
 
     <div class="header"></div>
 
-    <div class="ta-container">
+    <div class="ta-container" id="ta-admin-container">
         <h1>TA Administration</h1>
         <p>The following table contains all TAs in the current cohort.</p>
         <p>Click on a TA's name for more information</p>
         <div id="ta-admin-header">
             <input oninput="return update_content()" id="search-ta-course" type="search" name="search-ta-course" placeholder="Search Name, ID or Course">
             <button onclick="location.href = '#';">Import TA Cohort</button>
-            <button onclick="location.href = '#';">Add a TA</button>
+            <button onclick="location.href = 'add-ta.html';">Add a TA</button>
         </div>
         <div>
             <table id="ta-database">
