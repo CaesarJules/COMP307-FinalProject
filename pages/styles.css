@@ -124,6 +124,15 @@ a, a:visited, a:hover{
     margin:10% auto;
 }
 
+#ta-admin-container {
+    background-color: #f4f4f4;
+    padding:1em 3em;
+}
+ 
+#ta-database{
+    background-color: white;
+}
+
 #rate-container h3 {
     margin-bottom: 10px;
 }
@@ -294,10 +303,6 @@ th, td{
 
 #ta-admin-header input, #ta-admin-header button{
     display: inline-block;
-}
-
-#ta-database {
-    background-color: #f4f4f4;
 }
 
 #ta-detail-container div{
