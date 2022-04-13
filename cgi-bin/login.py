@@ -11,8 +11,8 @@ password  = form.getvalue('password')
 
 
 r = False
-if exists('registry.csv'):
-    with open('registry.csv', 'r') as f:
+if exists('/home/2019/aphila/public_html/cgi-bin/registry.csv'):
+    with open('/home/2019/aphila/public_html/cgi-bin/registry.csv', 'r') as f:
         for line in f.readlines():
             line = line.strip()
             if not line: break
