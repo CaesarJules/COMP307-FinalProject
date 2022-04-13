@@ -185,7 +185,7 @@
             var data = request.responseText;
             var htmlObject = document.createElement('div');
             htmlObject.innerHTML = data;
-            //console.log(data);
+            console.log(data);
             tags = htmlObject.getElementsByTagName("h2");
             //console.log(users);
             table = document.getElementById('table');
@@ -203,9 +203,11 @@
                     var cell = newRow.insertCell(j);
                     cell.innerHTML = users[i][j];
                 } 
-            }           
+                var cell = newRow.insertCell(users[i].length);
+                cell.innerHTML = "<div id='edit-icon' ><i onclick='edit_options()' class='fa-solid fa-pen-to-square'></i> </div> <div id='edit-options' ><a href='register.html'><font color='black'>Edit</font></a> <br></br> <a href='#'><font color='red'>Delete</font></a> </div>  ";
+            }       
         }
-        
+
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         request.send();
 
