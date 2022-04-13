@@ -19,7 +19,7 @@ confirm = form.getvalue('confirm')
 r=False
 if email and password and confirm and password == confirm:
     r = True
-    with open('registry.csv', 'a') as f:
+    with open('/home/2019/aphila/public_html/cgi-bin/registry.csv', 'a') as f:
         f.write(fname+","+lname+","+id+","+course
         +","+term+","+role+","+email+","+password+"\n")
 
@@ -31,11 +31,3 @@ print ("</head>")
 print ("<body>")
 print ("</body>")
 print ("</html>")
-
-
-
-
-
-
-
-

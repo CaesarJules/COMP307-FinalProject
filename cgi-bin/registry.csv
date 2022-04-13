@@ -1,3 +1,5 @@
 firstname,lastname,ID,course,term,role,username,password
 adrien,philardeau,123,COMP307,Winter2022,student,adrien@gmail.com,qwer
 jules,cesar,234,COMP307,Winter2022,TA,jules@gmail.com,qwer
+Michael,Hao,260795549,comp307,fall,professor,michael.hao@mail.mcgill.ca,123
+John,Doe,1243,comp307,winter,ta,john@gmail.com,qwer

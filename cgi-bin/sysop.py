@@ -12,7 +12,7 @@ if exists('registry.csv'):
             if not line: break
             fname, lname, id, course, term, role, username, password = line.split(',')
             users.append(','.join([username, role, course, term]))
-            pass
+            
 
 print ("Content-type:text/html\r\n\r\n")
 print ("<html>")
@@ -24,11 +24,3 @@ for user in users:
     print ("<h2>%s</h2>" % str(user))
 print ("</body>")
 print ("</html>")
-
-
-
-
-
-
-
-
