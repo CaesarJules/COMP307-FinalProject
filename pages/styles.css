@@ -187,6 +187,7 @@ a, a:visited, a:hover{
     padding: 4%;
     border: 0;
     background: none;
+    cursor: pointer;
 }
 .global-sidebar i {
     margin-left: 2%;
@@ -202,8 +203,11 @@ table{
 }
 th, td{
     border-bottom: 1px solid #bbbbbb;
-    padding: 1rem 1.5rem;
+    padding: 2rem 1.5rem;
     text-align: left;   
+}
+tbody:empty::before {
+    content: "Sorry, there is no corresponding data yet!";   
 }
 
 .manage-users i {
@@ -334,12 +338,12 @@ th, td{
     padding: 10px;
 }
 
-#edit-icon, #ta-icon {
+.edit-icon, #ta-icon {
     width: 30%;
     float: left;
     cursor: pointer;
 }
-#edit-options {
+.edit-options {
     width: 30%;
     float: right;
     display: none;

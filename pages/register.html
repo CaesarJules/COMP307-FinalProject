@@ -81,7 +81,28 @@
 </body>
 
 <script>
+  loadCachedData()
   $('select').selectpicker();
+
+  function loadCachedData(){
+    let fields = ['fname', 'lname', 'mcgill-id', 'course', 'term', 'role', 'email'];
+
+    for (let i=0; i<fields.length; i++){
+      curr = fields[i];
+      storedValue = sessionStorage.getItem(curr);
+      if (storedValue !== null){
+        document.getElementById('login-form').elements[curr].value = storedValue;
+      }
+    }
+    //Clear the session storage values for a better experience with register later
+    for (let i=0; i<fields.length; i++){
+      curr = fields[i];
+      storedValue = sessionStorage.getItem(curr);
+      if (storedValue !== null){
+        sessionStorage.removeItem(curr);
+      }
+    }
+  }
 
   function logSubmit(event) {
     event.preventDefault();

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -47,30 +48,19 @@
                     <button onclick="location.href = 'register.html';" >Add user</button>
                 </div>
                 <div>
-                    <table id="table">
-                        <tr>
-                        <th>Username</th>
-                        <th>Roles</th>
-                        <th>Course</th>
-                        <th>Semester</th>
-                        <th></th>
-                        </tr>
+                    <table >
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Roles</th>
+                                <th>Course</th>
+                                <th>Semester</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="table">
 
-                        <tr>
-                            <td>Jondoe</td>
-                            <td>Professor, TA administrator, System operator</td>
-                            <td>COMP 303</td>
-                            <td>Summer 2022 </td>
-                            <td>
-                                <div id="edit-icon" >
-                                    <i onclick="edit_options()" class="fa-solid fa-pen-to-square"></i>
-                                </div>                            
-                                <div id="edit-options" >
-                                    <a href="register.html"><font color="black">Edit</font></a> <br></br>
-                                    <a href="#"><font color="red">Delete</font></a>
-                                </div>
-                            </td>
-                        </tr>
+                        </tbody>
                         
                     </table>
                 </div>
@@ -141,15 +131,25 @@
     </div>
     
     <script>
-        function update_content(){
-            console.log(document.getElementById("search-user").value);
+        get_data('')
 
+        function update_content(){
+            get_data(document.getElementById("search-user").value);
             return false;
         }
 
-        function edit_options(){
-            console.log(document.getElementById("edit-options").style.display)
-            let curr = document.getElementById("edit-options");
+        function edit_options(id){
+            //Display the currently selected row only
+            let curr = document.getElementsByClassName(id);
+            curr = curr[0]
+            //Clear first all the other previously opened edit options
+            let open_options = document.getElementsByClassName("edit-options");
+            for (let i=0; i< open_options.length; i++){
+                if (open_options[i]!==curr){
+                    open_options[i].style.display='none'
+                }
+            }
+            
             if (curr.style.display !== 'block'){
                 curr.style.display = 'block';
             }else{
@@ -178,40 +178,70 @@
 
             return false;
         }
+        
+        function get_data(username){
 
-        var request = new XMLHttpRequest();
-        request.open('GET', 'https://www.cs.mcgill.ca/~aphila/cgi-bin/sysop.py');
-        request.onload = function(){
-            var data = request.responseText;
-            var htmlObject = document.createElement('div');
-            htmlObject.innerHTML = data;
-            console.log(data);
-            tags = htmlObject.getElementsByTagName("h2");
-            //console.log(users);
-            table = document.getElementById('table');
-            var users = [];
-            for (var i = 0; i < tags.length; i++){
-                users.push(tags[i].innerHTML.split(','));
+            var request = new XMLHttpRequest();
+            request.open('GET', 'https://www.cs.mcgill.ca/~aphila/cgi-bin/sysop.py');
+            request.onload = function(){
+                var data = request.responseText;
+                var htmlObject = document.createElement('div');
+                htmlObject.innerHTML = data;
+                tags = htmlObject.getElementsByTagName("h2");
+                table = document.getElementById('table');
+                var users = [];
+                for (var i = 0; i < tags.length; i++){
+                    users.push(tags[i].innerHTML.split(','));
+                }
+                var htmlObject = document.createElement('div');
+                htmlObject.innerHTML = data;
+                $("#table").empty();
+                if (username.length > 0){
+                    users = users.filter((user)=>user[0].startsWith(username));
+                }
+                for (var i = 0; i < users.length; i++){
+                    var newRow = table.insertRow(table.length);
+                    for(var j=0; j<users[i].length; j++){
+                        var cell = newRow.insertCell(j);
+                        cell.innerHTML = users[i][j];
+                    } 
+                    //get a unique hash to be used as an ID
+                    let row_id = `${users[i][0]}-${users[i][2]}-${users[i][3]}`;
+                    var cell = newRow.insertCell(users[i].length);
+                    cell.innerHTML = '<div class="edit-icon" ><i onclick=\'edit_options("'+ row_id + '")\' class="fa-solid fa-pen-to-square"></i> </div> <div class="edit-options '+ row_id +'"> \
+                        <a href="javascript:;" onclick=\'return edit_row(this.parentNode)\'> \
+                            <font color="black">Edit</font></a> <br></br> \
+                        <a href="javascript:;" onclick=\'return delete_row(this.parentNode)\'> \
+                            <font color="red">Delete</font></a> </div>';
+                }       
             }
-            console.log(users)
-            var htmlObject = document.createElement('div');
-            htmlObject.innerHTML = data;
 
-            for (var i = 0; i < users.length; i++){
-                var newRow = table.insertRow(table.length);
-                for(var j=0; j<users[i].length; j++){
-                    var cell = newRow.insertCell(j);
-                    cell.innerHTML = users[i][j];
-                } 
-                var cell = newRow.insertCell(users[i].length);
-                cell.innerHTML = "<div id='edit-icon' ><i onclick='edit_options()' class='fa-solid fa-pen-to-square'></i> </div> <div id='edit-options' ><a href='register.html'><font color='black'>Edit</font></a> <br></br> <a href='#'><font color='red'>Delete</font></a> </div>  ";
-            }       
+            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            request.send();
         }
 
-        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        request.send();
+        function edit_row(row_id){
+            row_id = row_id.getAttribute('class').split(" ")
+            //TODO!!!! Make this list extended with all the other user data from the Database
+            data_to_edit = row_id[1].split("-");
+            //store the data to session storage and access them from the register page
+            sessionStorage.setItem("email", data_to_edit[0]);
+            sessionStorage.setItem("course", data_to_edit[1]);
+            sessionStorage.setItem("term", data_to_edit[2]);
 
+            window.location = "./register.html"
 
+            return false;
+        }
+
+        function delete_row(row_id){
+            row_id = row_id.getAttribute('class').split(" ")
+            data_to_delete = row_id[1].split("-");
+            //Use an HTTP Request to delete from the Database the data corresponding to the username, course, and Semester above
+            console.log(data_to_delete)
+
+            return false;
+        }
 
     </script>
 </body>
