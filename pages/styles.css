@@ -129,7 +129,7 @@ a, a:visited, a:hover{
     padding:1em 3em;
 }
  
-#ta-database{
+.admin-table{
     background-color: white;
 }
 
@@ -323,10 +323,6 @@ tbody:empty::before {
 .detail-info td{
     border: none;
     padding: 0;
-}
-
-.ta-courses {
-    background-color:white;
 }
 
 #ta-form {
