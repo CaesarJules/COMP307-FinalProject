@@ -124,6 +124,10 @@ a, a:visited, a:hover{
     margin:10% auto;
 }
 
+.ta-container div h2 {
+    margin:0;
+}
+
 #ta-admin-container {
     background-color: #f4f4f4;
     padding:1em 3em;
@@ -310,7 +314,7 @@ tbody:empty::before {
 }
 
 #ta-detail-container div{
-    padding: 10px 40px;
+    padding: 20px 40px;
     background-color: #f4f4f4;
     margin: 10px 0;
 }
