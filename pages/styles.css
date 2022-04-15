@@ -58,7 +58,7 @@ a, a:visited, a:hover{
     width: 30%;
 }
 
-#login-form h1,p {
+#login-form h1, #login-form p {
     text-align: center;
     margin: 20px;
 }
@@ -421,6 +421,11 @@ tbody:empty::before {
     border-radius: 15px;
     color: white;
     background-color: #000000;
+}
+
+#course-detail-name {
+    border-bottom: 1px solid #bbbbbb;
+    padding-bottom: 10px;
 }
 
 #remove-ta-btn:hover {

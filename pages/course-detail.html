@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TA Manager | McGill University</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="top-banner">
+        <div class="logout-icon">
+            <a href="javascript:void(0);" id="logout" onclick="">
+                <i class="fa-solid fa-right-from-bracket"></i> Log Out
+            </a>
+        </div>
+
+        <div class="user-icon">
+            <i class="fa-solid fa-user-check"></i> jules.niyonkuru@mail.mcgill.ca
+        </div>
+    </div>
+
+    <div class="cs-logo">
+        <a href="dashboard.html"><img src="../assets/McGill-CS.png" alt="McGill Logo"></a>
+    </div>
+
+    <div class="header"></div>
+
+    <div class="ta-container" id="ta-detail-container">
+        <div id="ta-detail-header">
+            <h1 id="course-detail-name">COMP 303<br>Software Design</h1>
+            <p>Course Type: Science</p>
+            <p>Instructor: Jin Guo</p>
+            <p>Student Enrollment: 250</p>
+            <p>TA Quota: 35</p>
+            <p>Max number of TAs: 7</p>
+        </div>
+
+        <div>
+            <h2>Assigned TAs</h2>
+            <p>Click on a TA's name for more information.</p>
+            <h3>Winter 2022</h3>
+            <table id="ta-database">
+                <tr>
+                <th>TA Name</th>
+                <th>Student ID</th>
+                <th>Current Courses</th>
+                <th>Past Courses</th>
+                </tr>
+                <tr>
+                    <td><a href="ta-detail.html">Ada Lovelace</a></td>
+                    <td>123456789</td>
+                    <td>COMP 303</td>
+                    <td>COMP 202, COMP 250</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="mcgill">
+            McGill University
+        </div>
+        <div class="copyright">
+            &copy; Lilia Haché, Adrien Philardeau, César Niyonkuru
+        </div>
+    </div>
+    
+</body>
+
+</html>
