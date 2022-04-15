@@ -315,12 +315,12 @@ tbody:empty::before {
     margin: 10px 0;
 }
 
-.ta-detail-info {
+.detail-info {
     font-size: 14px;
     margin: 0;
 }
 
-.ta-detail-info td{
+.detail-info td{
     border: none;
     padding: 0;
 }

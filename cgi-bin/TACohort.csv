@@ -1,4 +1,4 @@
 term_month_year, TA_name, student_ID, legal_name, email, grad_ugrad, supervisor_name, priority(yes/no), hours(90/180), date_applied, location, phone, degree, courses_applied_for, open_to_other_courses(yes/no), notes
 winter2022, Ada Lovelace, 123456789, Augusta Ada King, ada.lovelace@mail.mcgill.ca, Joseph Vybihal, yes, 90, 30/11/2021, Montreal, (514)555-5555, BS Computer Science, [303, 302], no, Prefers 303
 winter2022, Lilia Haché, 260929107, Lilia Haché, lilia.hache@mail.mcgill.ca, Giulia Aberini, yes, 180, 12/12/2021, Montreal, (514)111-1111, BA Computer Science, [202], yes, some notes
-summer2022, Alan Turing, 987654321, Alan Turing, alan.turing@mail.mcgill.ca, Giulia Aberini, no, 90, 31/12/2021, Toronto, (514)123-4556, Software Engineering, [330, 251], yes, open to 303
+summer2022, Alan Turing, 987654321, Alan Turing, alan.turing@mail.mcgill.ca, Giulia Aberini, no, 90, 31/12/2021, Toronto, (514)123-4556, Software Engineering, [330, 251, 303], yes, Prefers 330
