@@ -149,6 +149,8 @@ a, a:visited, a:hover{
 }
 .sysop h3 {
     margin: 15px 0;
+    border-bottom: 1px solid #bbbbbb;
+    padding-bottom: 10px;
 }
 .rate-select, .rate-review {
     background-color: #f4f4f4;
@@ -192,6 +194,8 @@ a, a:visited, a:hover{
 .global-main {
     width: 75%;
     float: left;
+    background-color: #f4f4f4;
+    padding:2em;
 }
 .global-sidebar button {
     width: 100%;
@@ -220,6 +224,7 @@ table{
     border-collapse: collapse;
     font-size: medium;
     width: 100%;
+    background-color: white;
 }
 th, td{
     border-bottom: 1px solid #bbbbbb;
@@ -370,7 +375,7 @@ tbody:empty::before {
 }
 #manage-users-header {
     width: 100%;
-    padding: 3% 0;
+    padding: 5% 0;
 }
 #manage-users-header input{
     width: 25%;
@@ -402,6 +407,10 @@ tbody:empty::before {
     border-radius: 15px;
     color: white;
     background-color: #000000;
+}
+
+#manual-add-ta-form table, #manual-add-course-form table{
+    background-color: #f4f4f4;
 }
 
 #manual-add-course-form td, #manual-add-ta-form td{
