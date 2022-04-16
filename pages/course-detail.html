@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TA Manager | McGill University</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="top-banner">
+        <div class="logout-icon">
+            <a href="javascript:void(0);" id="logout" onclick="">
+                <i class="fa-solid fa-right-from-bracket"></i> Log Out
+            </a>
+        </div>
+
+        <div class="user-icon">
+            <i class="fa-solid fa-user-check"></i> jules.niyonkuru@mail.mcgill.ca
+        </div>
+    </div>
+
+    <div class="cs-logo">
+        <a href="dashboard.html"><img src="../assets/McGill-CS.png" alt="McGill Logo"></a>
+    </div>
+
+    <div class="header"></div>
+
+    <div class="ta-container" id="ta-detail-container">
+        <div id="ta-detail-header">
+            <h1 id="course-detail-name">COMP 303<br>Software Design</h1>
+            <table class="detail-info">
+                <tbody>
+                    <tr>
+                        <td>
+                            <p>Term: Winter 2022</p>
+                            <p>Type: Science</p>
+                            <p>Instructor: Jin Guo</p>
+                        </td>
+                        <td>
+                            <p>Student Enrollment: 250</p>
+                            <p>TA Quota: 35</p>
+                            <p>Maximum number of TAs: 7</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <h2>Assigned TAs</h2>
+            <p>TAs currently assigned to this course.</p>
+            <p>Click on a TA's name for more information.</p>
+            <table class="admin-table">
+                <tr>
+                    <th>Courses</th>
+                    <th>Term</th>
+                    <th>Applied On</th>
+                    <th>Hours</th>
+                    <th>Priority</th>
+                    <th>Other Courses</th>
+                </tr>
+                <tr>
+                    <td><a href="ta-detail.html">Ada Lovelace</a></td>
+                    <td>Winter 2022</td>
+                    <td>31/12/2021</td>
+                    <td>90</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <h2>TA Applications</h2>
+            <p>TAs that have applied for this course</p>
+            <p>Click on a TA's name for more information.</p>
+            <table class="admin-table">
+                <tr>
+                    <th>Courses</th>
+                    <th>Term</th>
+                    <th>Applied On</th>
+                    <th>Hours</th>
+                    <th>Priority</th>
+                    <th>Other Courses</th>
+                </tr>
+                <tr>
+                    <td><a href="ta-detail.html">Ada Lovelace</a></td>
+                    <td>Winter 2022</td>
+                    <td>31/12/2021</td>
+                    <td>90</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td><a href="#">Alan Turing</a></td>
+                    <td>Winter 2022</td>
+                    <td>31/12/2021</td>
+                    <td>90</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="mcgill">
+            McGill University
+        </div>
+        <div class="copyright">
+            &copy; Lilia Haché, Adrien Philardeau, César Niyonkuru
+        </div>
+    </div>
+    
+</body>
+
+</html>

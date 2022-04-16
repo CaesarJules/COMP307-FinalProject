@@ -65,7 +65,7 @@ a, a:visited, a:hover{
     width: 30%;
 }
 
-#login-form h1,p {
+#login-form h1, #login-form p {
     text-align: center;
     margin: 20px;
 }
@@ -131,12 +131,16 @@ a, a:visited, a:hover{
     margin:10% auto;
 }
 
+.ta-container div h2 {
+    margin:0;
+}
+
 #ta-admin-container {
     background-color: #f4f4f4;
     padding:1em 3em;
 }
  
-#ta-database{
+.admin-table{
     background-color: white;
 }
 
@@ -319,23 +323,19 @@ tbody:empty::before {
 }
 
 #ta-detail-container div{
-    padding: 10px 40px;
+    padding: 20px 40px;
     background-color: #f4f4f4;
     margin: 10px 0;
 }
 
-.ta-detail-info {
+.detail-info {
     font-size: 14px;
     margin: 0;
 }
 
-.ta-detail-info td{
+.detail-info td{
     border: none;
     padding: 0;
-}
-
-.ta-courses {
-    background-color:white;
 }
 
 #ta-form {
@@ -430,6 +430,11 @@ tbody:empty::before {
     border-radius: 15px;
     color: white;
     background-color: #000000;
+}
+
+#course-detail-name {
+    border-bottom: 1px solid #bbbbbb;
+    padding-bottom: 10px;
 }
 
 #remove-ta-btn:hover {
