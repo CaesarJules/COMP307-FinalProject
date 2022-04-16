@@ -162,7 +162,7 @@
                         let ta_names = storedValue.split(" ");
                         let ta_email = ta_names.join('.')+"@mail.mcgill.ca"
                         document.getElementById('ta-email').innerHTML = ta_email;
-                        document.getElementById('email-href').setAttribute("href", ta_email); 
+                        document.getElementById('email-href').setAttribute("href",`mailto:${ta_email}`); 
                     }else if (curr==='ta_mcgill_id') {
                         document.getElementById('ta-mcgill-id').innerHTML = storedValue;
                     }
