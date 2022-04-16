@@ -6,6 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -34,25 +37,25 @@
         <p>The following table contains all TAs in the current cohort.</p>
         <p>Click on a TA's name for more information.</p>
         <div id="ta-admin-header">
-            <input oninput="return update_content()" id="search-ta-course" type="search" name="search-ta-course" placeholder="Search Name, ID or Course">
+            <input oninput="return update_content()" id="search-ta-course" type="search" name="search-ta-course" placeholder="Search by TA name">
             <button onclick="location.href = '#';">Import TA Cohort</button>
             <button onclick="location.href = 'add-ta.html';">Add a TA</button>
             <button onclick="location.href = '#';">Switch to Course View</button>
         </div>
         <div>
-            <table class="admin-table" id="ta-database">
-                <tr>
-                <th>TA Name</th>
-                <th>Student ID</th>
-                <th>Current Courses</th>
-                <th>Past Courses</th>
-                </tr>
-                <tr>
-                    <td><a href="ta-detail.html">Ada Lovelace</a></td>
-                    <td>123456789</td>
-                    <td>COMP 303</td>
-                    <td>COMP 202, COMP 250</td>
-                </tr>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>TA Name</th>
+                        <th>Student ID</th>
+                        <th>Current Courses</th>
+                        <th>Past Courses</th>
+                    </tr>
+                </thead>
+                <tbody id="ta-database">
+                    
+                </tbody>
+                
             </table>
         </div>
     </div>
@@ -65,43 +68,76 @@
             &copy; Lilia Haché, Adrien Philardeau, César Niyonkuru
         </div>
     </div>
+
+    <script>
+
+        get_data('')
+    
+        function update_content(){
+            get_data(document.getElementById("search-ta-course").value);
+            return false;
+        }
+        
+        function ta_details(id) {
+            data = id.split("-")
+
+            sessionStorage.setItem("ta_name", data[0]);
+            sessionStorage.setItem("ta_mcgill_id", data[1]);
+            sessionStorage.setItem("ta_current_courses", data[2]);
+            sessionStorage.setItem("ta_past_courses", data[3]);
+
+            window.location = "./ta-detail.html"
+
+            return false;
+        }
+    
+        function get_data(username){
+    
+            var request = new XMLHttpRequest();
+            request.open('POST', 'https://www.cs.mcgill.ca/~aphila/cgi-bin/ta-admin.py');
+            request.onload = function(){
+                var data = request.responseText;
+                var htmlObject = document.createElement('div');
+                htmlObject.innerHTML = data;
+                console.log(data);
+                tags = htmlObject.getElementsByTagName("h2");
+                //console.log(users);
+                table = document.getElementById('ta-database');
+                var TAs = [];
+                for (var i = 0; i < tags.length; i++){
+                    TAs.push(tags[i].innerHTML.split(','));
+                }
+                console.log(TAs)
+                var htmlObject = document.createElement('div');
+                htmlObject.innerHTML = data;
+    
+                $("#ta-database").empty();
+                if (username.length > 0){
+                    TAs = TAs.filter((ta)=>ta[0].toLowerCase().startsWith(username.toLowerCase()));
+                }
+    
+                for (var i = 0; i < TAs.length; i++){
+                    var newRow = table.insertRow(table.length);
+                    for(var j=0; j<TAs[i].length; j++){
+                        var cell = newRow.insertCell(j);
+                        if (j == 0){
+                            //get a unique hash to be used as an ID
+                            let row_id = TAs[i].join("-");
+                            cell.innerHTML ='<a href="javascript:;" onclick=\'return ta_details("'+ row_id + '")\'>'
+                            + TAs[i][j] + '</a>';
+                        }
+                        else cell.innerHTML = TAs[i][j];
+                    } 
+                }           
+            }
+                
+            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            request.send();
+        }
+    
+    
+    </script>
     
 </body>
-
-<script>
-    var request = new XMLHttpRequest();
-    request.open('POST', 'https://www.cs.mcgill.ca/~aphila/cgi-bin/ta-admin.py');
-    request.onload = function(){
-        var data = request.responseText;
-        var htmlObject = document.createElement('div');
-        htmlObject.innerHTML = data;
-        console.log(data);
-        tags = htmlObject.getElementsByTagName("h2");
-        //console.log(users);
-        table = document.getElementById('ta-database');
-        var TAs = [];
-        for (var i = 0; i < tags.length; i++){
-            TAs.push(tags[i].innerHTML.split(','));
-        }
-        console.log(TAs)
-        var htmlObject = document.createElement('div');
-        htmlObject.innerHTML = data;
-
-        for (var i = 0; i < TAs.length; i++){
-            var newRow = table.insertRow(table.length);
-            for(var j=0; j<TAs[i].length; j++){
-                var cell = newRow.insertCell(j);
-                if (j == 0){
-                    cell.innerHTML = "<a href='ta-detail.html'>" + TAs[i][j] + "</a>";
-                }
-                else cell.innerHTML = TAs[i][j];
-            } 
-        }           
-    }
-        
-    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    request.send();
-
-</script>
 
 </html>

@@ -33,7 +33,7 @@
         <div id="ta-detail-header">
             <table id="ta-detail-name">
                 <tr>
-                    <td><h1>Ada Lovelace</h1></td>
+                    <td><h1 class="ta-name">Ada Lovelace</h1></td>
                     <td >
                         <button type="submit" id="remove-ta-btn">Read Reviews</button>
                         <button type="submit" id="remove-ta-btn">Read Performance Logs</button>
@@ -44,9 +44,9 @@
             <table class="detail-info">
                 <tr>
                     <td>
-                        <p>Legal Name: Augusta Ada King</p>
-                        <p>Student ID: 123456789</p>
-                        <p>Email: <a href="mailto:webmaster@example.com">ada.lovelace@mail.mcgill.ca</a></p>
+                        <p>Legal Name: <font class="ta-name" >Augusta Ada King</font> </p>
+                        <p>Student ID: <font id="ta-mcgill-id" >123456789</font> </p>
+                        <p>Email: <a href="mailto:webmaster@example.com"><font id="ta-email" >ada.lovelace@mail.mcgill.ca</font> </a></p>
                         <p>Phone: (514) 555-5555</p>
                         <p>Location: Montreal</p>
                         
@@ -145,6 +145,39 @@
         </div>
     </div>
     
+    <script>
+        loadCachedData();
+
+        function loadCachedData(){
+            let fields = ['ta_name', 'ta_mcgill_id', 'ta_current_courses', 'ta_past_courses'];
+
+            for (let i=0; i<fields.length; i++){
+                var curr = fields[i];
+                storedValue = sessionStorage.getItem(curr);
+                if (storedValue !== null){ 
+                    if (curr==='ta_name') {
+                        let temp = document.getElementsByClassName('ta-name');
+                        temp[0].innerHTML = storedValue;
+                        temp[1].innerHTML = storedValue;
+                        let ta_names = storedValue.split(" ");
+                        document.getElementById('ta-email').innerHTML = ta_names.join('.')+"@mail.mcgill.ca";
+                    }else if (curr==='ta_mcgill_id') {
+                        document.getElementById('ta-mcgill-id').innerHTML = storedValue;
+                    }
+                }              
+            }
+            //Clear the session storage values for a better experience with register later
+            for (let i=0; i<fields.length; i++){
+                curr = fields[i];
+                storedValue = sessionStorage.getItem(curr);
+                if (storedValue !== null){
+                    sessionStorage.removeItem(curr);
+                }
+            }
+        }
+
+    </script>
+
 </body>
 
 </html>
