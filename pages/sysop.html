@@ -6,8 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -39,7 +42,10 @@
         </div>
 
         <div class="global-main">
-            
+            <div class="alert alert-dismissible fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <p><strong>Success!</strong></p>
+            </div>
             <h1>Sysop</h1>
             <div class="sysop manage-users">
                 <h3>Manage Users</h3>
@@ -68,7 +74,7 @@
             <div class="sysop import-prof">
                 <h3>Import courses from CSV</h3>
                 <form id="import-course">
-                    <input type="file" id="sysop-filepicker" accept=".csv">
+                    <input type="file" id="sysop-filepicker" accept=".csv" required>
                     <button type="submit" id="submit-file">Import</button>
                 </form>
             </div>
@@ -91,25 +97,25 @@
                           <tr>
                             <td>Year</td>
                             <td>
-                                <input type="number" min="1900" max="2099" step="1" value="2022" required>
+                                <input name="year" type="number" min="1900" max="2099" step="1" value="2022" required>
                             </td>
                           </tr>
                           <tr>
                             <td>Course Number</td>
                             <td>
-                                <input id="course-num" type="text" placeholder="COMP307" required>
+                                <input name="courseNum" id="course-num" type="text" placeholder="COMP307" required>
                             </td>
                           </tr>
                           <tr>
                             <td>Course Name</td>
                             <td>
-                                <input id="course-name" type="text" placeholder="Web Development" required>
+                                <input name="courseName" id="course-name" type="text" placeholder="Web Development" required>
                             </td>
                           </tr>
                           <tr>
                             <td>Instructor Name</td>
                             <td>
-                                <input id="instructor-name" type="text" placeholder="Joseph Vybihal" required>
+                                <input name="instructor" id="instructor-name" type="text" placeholder="Joseph Vybihal" required>
                             </td>
                           </tr>
                         </tbody>
@@ -237,10 +243,68 @@
         function delete_row(row_id){
             row_id = row_id.getAttribute('class').split(" ")
             data_to_delete = row_id[1].split("-");
-            //Use an HTTP Request to delete from the Database the data corresponding to the username, course, and Semester above
+            //TODO!!!! Use an HTTP Request to delete from the Database the data corresponding to the username, course, and Semester above
             console.log(data_to_delete)
 
             return false;
+        }
+
+        const [import_data, manual_data] = [document.getElementById('import-course'), document.getElementById('manual-add-course-form')];
+
+        import_data.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let csv = document.getElementById("sysop-filepicker");
+            let input = csv.files.length>0 ? csv.files[0]:new Blob([]);
+            let f = new FileReader();
+            let data = []
+
+            f.onload = function (e) {
+                let text = e.target.result;
+                let rows = text.split("\n");
+                data = rows.map( row => row.split(',') )
+            };
+         
+            if (input.size > 0){
+                f.readAsText(input);
+            }
+
+            //Only update the result after the end of the asynchronous file reading operation
+            f.onloadend = function(e) {
+                //Check first if the input file is well structured
+                //TODO!!!! Add the input file data to the database skipping the header
+                commit_new_data(data.shift())
+            }
+            
+        });
+
+        manual_data.addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            var term = manual_data.elements['term'].value;
+            var year = manual_data.elements['year'].value;
+            var courseNum = manual_data.elements['courseNum'].value;
+            var courseName = manual_data.elements['courseName'].value;
+            var instructor = manual_data.elements['instructor'].value;
+
+            commit_new_data([term+year, courseNum, courseName, instructor], false)
+        });
+        
+        function commit_new_data(data, file=true){
+
+            //Display alert message and go back to home after 1.5sec
+            let alert = document.getElementsByClassName('alert')[0]
+            if (alert.classList.contains('alert-danger')){
+                    alert.classList.remove('alert-danger');
+                }
+            alert.classList.add('alert-success');
+            alert.innerHTML = '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> \
+                <p><strong>Success!</strong></p>';
+            alert.style.display = 'block';
+            setTimeout(()=>{
+            alert.style.display = 'none';
+            window.location.reload(); 
+            }, 1500);
         }
 
     </script>

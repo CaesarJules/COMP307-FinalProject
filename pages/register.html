@@ -24,13 +24,13 @@
   <div class="login-container">
 
     <form id="login-form">
-      <h1>Register</h1>
+      <h1 id="title-header" >Register</h1>
 
       <input type="text" name="fname" placeholder="First name">
       <input type="text" name="lname" placeholder="Last name">
       <input type="number" name="mcgill-id" placeholder="McGill ID number (9-digit)">
       <span style="padding: 0%;" >
-        <select name="course" class="selectpicker" data-live-search="true" >
+        <select id="course" name="course" class="selectpicker" data-live-search="true" >
           <option value="" selected disabled><font color:black>Course</font></option>
           <option value="comp307">COMP 307</option>
           <option value="comp303">COMP 303</option>
@@ -38,7 +38,7 @@
         </select>
       </span>
       <span style="padding: 0%;" >
-        <select name="term" class="selectpicker" data-live-search="true" >
+        <select id="term" name="term" class="selectpicker" data-live-search="true" >
           <option value="" selected disabled><font color:black>Semester</font></option>
           <option value="fall">Fall</option>
           <option value="winter">Winter</option>
@@ -46,7 +46,7 @@
         </select>
       </span>
       <span style="padding: 0%;">
-        <select name="role" class="selectpicker" data-live-search="true" >
+        <select id="role" name="role" class="selectpicker" data-live-search="true" >
           <option value="" selected disabled><font color:black>Role</font></option>
           <option value="student">Student</option>
           <option value="professor">Professor</option>
@@ -64,7 +64,7 @@
     </form>
 
     <div class="form-link">
-      <a href="index.html">Back to Login</a>
+      <a id="back-option" href="index.html">Back to Login</a>
     </div>
 
   </div>
@@ -88,10 +88,17 @@
     let fields = ['fname', 'lname', 'mcgill-id', 'course', 'term', 'role', 'email'];
 
     for (let i=0; i<fields.length; i++){
-      curr = fields[i];
+      var curr = fields[i];
       storedValue = sessionStorage.getItem(curr);
-      if (storedValue !== null){
+      if (storedValue !== null){  
         document.getElementById('login-form').elements[curr].value = storedValue;
+        var submitBtnTxt = $('#register-btn');
+        if (submitBtnTxt.value!=="Update"){
+          submitBtnTxt.val("Update");
+          $('#title-header').html("Update");
+          $('#back-option').html("Back to Sysop");
+        }
+        
       }
     }
     //Clear the session storage values for a better experience with register later
@@ -121,7 +128,11 @@
     var request = new XMLHttpRequest();
     request.open('POST', 'https://www.cs.mcgill.ca/~aphila/cgi-bin/register.py');
     request.onload = function () {
-      window.location.href = "https://www.cs.mcgill.ca/~aphila/COMP307-FinalProject/pages/dashboard.html";
+      if ($('#register-btn').value==="Update"){
+        window.location.href = "https://www.cs.mcgill.ca/~aphila/COMP307-FinalProject/pages/sysop.html";
+      }else{
+        window.location.href = "https://www.cs.mcgill.ca/~aphila/COMP307-FinalProject/pages/dashboard.html";
+      }
     }
     console.log(fname, lname, id, course, term, role, email, password, confirm)
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
