@@ -46,7 +46,7 @@
                     <td>
                         <p>Legal Name: <font class="ta-name" >Augusta Ada King</font> </p>
                         <p>Student ID: <font id="ta-mcgill-id" >123456789</font> </p>
-                        <p>Email: <a href="mailto:webmaster@example.com"><font id="ta-email" >ada.lovelace@mail.mcgill.ca</font> </a></p>
+                        <p>Email: <a id="email-href" href="mailto:webmaster@example.com"><font id="ta-email" >ada.lovelace@mail.mcgill.ca</font> </a></p>
                         <p>Phone: (514) 555-5555</p>
                         <p>Location: Montreal</p>
                         
@@ -160,7 +160,9 @@
                         temp[0].innerHTML = storedValue;
                         temp[1].innerHTML = storedValue;
                         let ta_names = storedValue.split(" ");
-                        document.getElementById('ta-email').innerHTML = ta_names.join('.')+"@mail.mcgill.ca";
+                        let ta_email = ta_names.join('.')+"@mail.mcgill.ca"
+                        document.getElementById('ta-email').innerHTML = ta_email;
+                        document.getElementById('email-href').setAttribute("href", ta_email); 
                     }else if (curr==='ta_mcgill_id') {
                         document.getElementById('ta-mcgill-id').innerHTML = storedValue;
                     }
