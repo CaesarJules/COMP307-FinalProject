@@ -205,8 +205,15 @@ a, a:visited, a:hover{
 .global-sidebar i {
     margin-left: 2%;
 }
-.global-sidebar button:hover, #admin_b3, #sysop_b1{
+.global-sidebar button:hover, #admin_b3, #sysop_b1, #ta_mgnt_b1{
     background-color: #f4f4f4;
+}
+.global-sidebar > .sub_btn {
+    padding-left: 20%;
+    display: none;
+}
+#ta_mgnt_b6{
+    display: none;
 }
 table{
     margin-top: 4%;
@@ -260,10 +267,14 @@ tbody:empty::before {
 .dropdown-content a:hover {
     background-color: #ED1B2F;
 }
-.ta-admin, .sysop {
+.ta-admin, .sysop, .ta-mgnt {
     display: none;
 }
-.course-history, .manage-users {
+.ta-mgnt h3 {
+    text-align: center;
+    margin: 7% auto;
+}
+.course-history, .manage-users, .select-courses {
     display: block;
 }
 

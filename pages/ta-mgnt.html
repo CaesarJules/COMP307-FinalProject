@@ -6,7 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -31,27 +37,39 @@
 
     <div class="global-container">
         <div class="global-sidebar">
-            <dl>
-                <dt onclick="location.href='javascript:void(0)';" class="selected-task" >Select Course <i class="fa-solid fa-circle-chevron-down"></i> </dt>
-                <dd onclick="location.href='javascript:void(0)';" >Office Hours/responsibilities Sheet</dd>
-                <dd onclick="location.href='javascript:void(0)';" >Channel</dd>   
-                <dd onclick="location.href='javascript:void(0)';" >Prof's TA performance log</dd>
-                <dd onclick="location.href='javascript:void(0)';" >TA wishlist</dd> 
-                <dt onclick="location.href='javascript:void(0)';" >All TA's Report</dt>
-            </dl>
+            <button class="sidebar-btn" id="ta_mgnt_b1" onclick="return update_page('ta_mgnt_b1')">Select Course 
+                <i class="fa-solid fa-chevron-down"></i></button>
+            <button class="sidebar-btn sub_btn" id="ta_mgnt_b2" onclick="return update_page('ta_mgnt_b2')">Office Hours/responsibilities Sheet</button>
+            <button class="sidebar-btn sub_btn" id="ta_mgnt_b3" onclick="return update_page('ta_mgnt_b3')">Channel</button> 
+            <button class="sidebar-btn sub_btn" id="ta_mgnt_b4" onclick="return update_page('ta_mgnt_b4')">Prof's TA performance log</button>
+            <button class="sidebar-btn sub_btn" id="ta_mgnt_b5" onclick="return update_page('ta_mgnt_b5')">TA wishlist</button>
+            <button class="sidebar-btn" id="ta_mgnt_b6" onclick="return update_page('ta_mgnt_b6','')">All TA's Report</button> 
         </div>
         <div class="global-main">
-            <div id="ta-mgnt">
-                <h1>TA Management</h1>
-
+            <h1>TA Management</h1>
+            <div class="ta-mgnt select-courses">
                 <div class="dropdown">
                     <button class="course-btn">Course</button>
                     <div class="dropdown-content">
-                      <a href="#">COMP 307</a>
-                      <a href="#">COMP 521</a>
+                      <a href="javascript:;" onclick="return submit_selection(this.innerHTML)">COMP 307</a>
+                      <a href="javascript:;" onclick="return submit_selection(this.innerHTML)">COMP 521</a>
                     </div>
                 </div>
-
+            </div>
+            <div class="ta-mgnt oh-sheet">
+                <h3 class="title"></h3>
+            </div>
+            <div class="ta-mgnt channel">
+                <h3 class="title"></h3>
+            </div>
+            <div class="ta-mgnt performance-log">
+                <h3 class="title"></h3>
+            </div>
+            <div class="ta-mgnt wish-list">
+                <h3 class="title"></h3>
+            </div>
+            <div class="ta-mgnt report">
+                <h3 class="title"></h3>
             </div>
         </div>
     </div>
@@ -64,6 +82,70 @@
             &copy; Lilia Haché, Adrien Philardeau, César Niyonkuru
         </div>
     </div>
+
+    <script>
+        {
+            var current_course = '';
+        }
+        function submit_selection(choice) {
+
+            let menus = document.getElementsByClassName("sidebar-btn");
+            for(let i=0; i<menus.length; i++){
+                let curr = menus[i];
+                if (curr.style.display!=="block"){
+                    curr.style.display='block'                   
+                }  
+            }
+            document.getElementsByClassName('select-courses')[0].style.display = 'none'
+            //Initialize a global variable with name current_course
+            current_course = choice;
+            update_page('ta_mgnt_b2')
+        }
+        
+        function update_page(id){
+            let menus = document.getElementsByClassName("sidebar-btn");
+            let sub_buttons = document.getElementsByClassName("sub_btn");
+            let menu_id = {
+                'ta_mgnt_b1':'select-courses',
+                'ta_mgnt_b2':'oh-sheet',
+                'ta_mgnt_b3':'channel',
+                'ta_mgnt_b4':'performance-log',
+                'ta_mgnt_b5':'wish-list',
+                'ta_mgnt_b6':'report'
+            }
+            
+            for(let i=0; i<menus.length; i++){
+                let currId = menus[i].id
+                main = document.getElementsByClassName(menu_id[currId]);
+                if (currId !== id){
+                    menus[i].style.backgroundColor="white";
+                    main[0].style.display = "none"
+                }else{
+                    menus[i].style.backgroundColor="#f4f4f4";
+
+                    if(id==='ta_mgnt_b1'){
+                        for (let j=0; j<sub_buttons.length;i++){
+                            if(sub_buttons[i].style.display!=='block'){
+                                sub_buttons[i].style.display='block'
+                            }else{
+                                sub_buttons[i].style.display='none'
+                            }
+                        }
+                    }else{  
+                        document.getElementsByClassName("select-courses")[0].style.display='none';                     
+                        btnId = '#'+id;
+                        currId = '#'+currId;
+                        let content = $(btnId).html();
+                        $('.title').html(`${content} for ${current_course}`); 
+                        main[0].style.display = "block";                   
+                    } 
+                }              
+            }
+
+            return false;
+        }
+        
+    </script>
     
 </body>
 
