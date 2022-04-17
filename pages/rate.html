@@ -30,19 +30,24 @@
     <div class="header"></div>
 
     <div id="rate-container">
+        <form id="review-form">
         <div class="rate-select">
             <h1 class="ta-name">TA</h1>
-
             <h3>Select a course:</h3>
-            <div class="rate-option" id="course1">COMP 307</div>
-            <div class="rate-option" id="course2">COMP 307</div>
+            <select id="course-nb" name="course-nb" class="selectpicker">
+                <option value="" selected disabled><font color:black>Course Number</font></option>
+                <option value="COMP307">COMP307</option>
+                <option value="COMP322">COMP322</option>
+              </select>
         </div>
         <div class="rate-select">
             <h3>Select a term:</h3>
-            <div class="rate-option" id="term1">Fall 2021</div>
-            <div class="rate-option" id="term2">Winter 2022</div>
+            <select id="term" name="term" class="selectpicker">
+                <option value="" selected disabled><font color:black>Ter </font></option>
+                <option value="Fall 2021">Fall 2021</option>
+                <option value="Winter 2022">Winter 2022</option>
+            </select>
         </div>
-        <form id="form"></form>
         <div class="rate-select">
             <h3>Rate this TA:</h3>
             <input type="radio" id="one" name="star" value="1" required>
@@ -58,11 +63,11 @@
         </div>
         <div class="rate-review">
             <h3>Review this TA:</h3>
-            <textarea placeholder="Write a review" id="review" rows="3" cols="50"></textarea> <br></br>             
+            <textarea name="review" placeholder="Write a review" id="review" rows="3" cols="50"></textarea> <br></br>             
             <input id="submit-review" type="submit" value="Submit">
             <div id="sucess"></div>
         </div>
-    </form>
+        </form>
     </div>
 
     <div class="footer">
@@ -113,9 +118,10 @@
                     courses.push(storedValue)
                 }
             }              
+
+        for(index in courses) {
+            courseSelect.options[courseSelect.options.length] = new Option(courses[index], courses[index]);
         }
-        document.getElementById('course1').innerHTML = courses[0];
-        document.getElementById('course2').innerHTML = courses[1];
 
 
         //Clear the session storage values for a better experience with register later
