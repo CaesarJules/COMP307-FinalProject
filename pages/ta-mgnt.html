@@ -42,7 +42,7 @@
             <button class="sidebar-btn sub_btn" id="ta_mgnt_b2" onclick="return update_page('ta_mgnt_b2')">Office Hours and Responsibilities Sheet</button>
             <button class="sidebar-btn sub_btn" id="ta_mgnt_b3" onclick="return update_page('ta_mgnt_b3')">Channel</button> 
             <button class="sidebar-btn sub_btn" id="ta_mgnt_b4" onclick="return update_page('ta_mgnt_b4')">Prof's TA performance log</button>
-            <button class="sidebar-btn sub_btn" id="ta_mgnt_b5" onclick="return update_page('ta_mgnt_b5')">TA wishlist</button>
+            <button class="sidebar-btn sub_btn" id="ta_mgnt_b5" onclick="return update_page('ta_mgnt_b5')">TA Wish List</button>
             <button class="sidebar-btn" id="ta_mgnt_b6" onclick="return update_page('ta_mgnt_b6','')">All TA's Report</button> 
         </div>
         <div class="global-main col-m-12 col-s-12">
@@ -90,7 +90,7 @@
                
                 <label for="tas">Choose a TA:</label>
                 <select name="TAs" id="selectTA" onchange="selectTA()">
-                <option value="">Select</option>
+                    <option value="">Select</option>
                 </select> 
 
                 <div id="comment"></div>
@@ -98,6 +98,41 @@
             </div>
             <div class="ta-mgnt wish-list">
                 <h3 class="title"></h3>
+                <div id="wishlist">
+                    <h4>Current Wish List</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>TA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ada Lovelace</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4 id="add-to-wishlist">Add a TA to your wish list.</h4>
+                    <div id="ta-admin-header">
+                        <input oninput="return update_content()" id="search-ta-course" type="search" name="search-ta-course" placeholder="Search by TA Name">
+                    </div>
+                    <div>
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>TA Name</th>
+                                    <th>Student ID</th>
+                                    <th>Current Courses</th>
+                                    <th>Past Courses</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ta-database">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
             <div class="ta-mgnt report">
                 <h3 class="title"></h3>
