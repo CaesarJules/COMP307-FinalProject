@@ -1,0 +1,7 @@
+term_month_year, course_num, course_type, course_name, instructor_name, course_enrollment_num, TA_quota
+Winter2022, COMP303, Science, Software Design, Jin Guo, 250, 35
+Fall2021, COMP202, Science, Foundations of Programming, Giulia Aberini, 500, 50
+Fall2021, COMP250, Science, Introduction to Computer Science, Giulia Aberini, 500, 40
+Winter2022, COMP598, Science, Data Science, Derek Ruths, 150, 35
+Fall2021, COMP273, Science, Introduction to Computer Systems, Joseph Vybihal, 30
+Winter2021, COMP553, Algorithmic Game Theory, Adrian Roshan Vetta, 40
