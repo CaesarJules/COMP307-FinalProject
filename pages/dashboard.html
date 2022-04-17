@@ -102,11 +102,12 @@
         
  
         //Define all the roles except student
-        let roles = ['ta-admin','ta','professor','sysop'];
+        let roles = ['taAdmin','ta','professor','sysop'];
         let curr_roles = loggedInUserRoles? loggedInUserRoles:[];
+        console.log(curr_roles)
 
         let dashboard_id = {
-            'ta-admin':'admin-dash',
+            'taAdmin':'admin-dash',
             'professor':'mgnt-dash',
             'ta':'mgnt-dash',
             'sysop':'sysop-dash'

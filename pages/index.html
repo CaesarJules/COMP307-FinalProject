@@ -54,8 +54,8 @@
           var data = request.responseText;
           var htmlObject = document.createElement('div');
           htmlObject.innerHTML = data;
-          console.log(htmlObject.getElementsByTagName("h2")[0].innerHTML.trim());
-          if (htmlObject.getElementsByTagName("h2")[0].innerHTML.trim() === "True"){
+          let content = htmlObject.getElementsByTagName("h2")
+          if (content[0].innerHTML.trim() === "True"){
             // Update first the error messages in case the previous login failed!!!
             document.getElementById("error-log").style.display = "none";
             loginCredentials = document.getElementsByClassName("login-box");
@@ -63,7 +63,7 @@
               loginCredentials[i].style.border = "";
             }
             sessionStorage.setItem("currentlyLoggedIn", email);
-            let roles = htmlObject.getElementsByTagName("h2")[1].innerHTML.trim().split("+");
+            let roles = content[1].innerHTML.trim().split("-");
             sessionStorage.setItem("loggedInUserRoles", roles);
             window.location.href = "dashboard.html";
           }
