@@ -55,9 +55,25 @@ a, a:visited, a:hover{
     background-color: #333333;
     height: 10%;
     width: 100%;
-    margin-top:9vh;
+    margin-top:11vh;
+    padding-top: 3.5vh;
+    padding-left: 29%;
 }
-
+.header button{
+    margin: 0%;
+    background-color: #333333;
+    color: #F4F4F4;
+    border: 0;
+    padding: 1%;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    display: none;
+}
+.header button:hover, .header button:focus, .header button:active {
+    background-color: #F4F4F4;
+    color: #333333;  
+}
 .login-container {
     background-color: #F4F4F4;
     padding: 10px;
@@ -95,7 +111,7 @@ a, a:visited, a:hover{
 }
 .task {
     width:30%;
-    display: inline-block;
+    display: none;
     background-color: #F4F4F4;
     margin: 2%;
 }
@@ -123,7 +139,7 @@ a, a:visited, a:hover{
 */
 #rate-container, .global-container{
     width:80%;
-    margin:10% auto;
+    margin:12% auto;
 }
 
 .ta-container {
@@ -556,7 +572,7 @@ textarea{
     #manual-add-course-form td {
         padding-right: 5em;
     }
-    #ta-form > #ta-form-header {
+    #ta-form #ta-container > #ta-form-header {
         height: 20%;
         padding-left: 0;
         font-size: small;
@@ -568,6 +584,13 @@ textarea{
     .global-sidebar {
         font-size: 15px;
         margin-bottom: 10%;
+    }
+    #ta-detail-container div{
+        padding: 10px 20px;
+        margin: 10px 0;
+    }
+    .header {
+        padding-left: 10%;
     }
     .col-m-1 {width: 8.33%;}
     .col-m-2 {width: 16.66%;}
@@ -658,7 +681,7 @@ textarea{
     #manage-users-header {
         margin-bottom: 20%;
     }
-    #manual-add-course-form td, .sysop {
+    #manual-add-course-form td, .sysop , #manual-add-ta-form td{
         padding-right: 0;
         font-size: small;
     }
@@ -685,6 +708,9 @@ textarea{
     #go-back-ta {
         float: left;
         margin-top: 20%;
+    }
+    .header {
+        padding-left: 0;
     }
     .col-s-1 {width: 8.33%;}
     .col-s-2 {width: 16.66%;}

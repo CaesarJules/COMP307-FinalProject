@@ -30,7 +30,12 @@
         <a href="dashboard.html"><img class="cs-logo-img" src="../assets/McGill-CS.png" alt="McGill Logo"></a>
     </div>
 
-    <div class="header"></div>
+    <div class="header col-l-12 col-m-12 col-s-12">
+        <button style="display: inline;" class="" id="rate-ta-nav" onclick="update_nav('rate-ta-nav')">Rate a TA</button>
+        <button class="" id="ta-admin-nav" onclick="update_nav('ta-admin-nav')">TA Administration</button>
+        <button class="" id="ta-mgnt-nav" onclick="update_nav('ta-mgnt-nav')">TA Management</button>
+        <button class="" id="sysop-nav" onclick="update_nav('sysop-nav')">Sysop Tasks</button>
+    </div>
 
     <div class="ta-container" id="ta-admin-container">
         <h1>Rate a TA</h1>
@@ -72,6 +77,44 @@
             document.getElementById('curr-user').innerHTML=loggedInUser
         }
         let loggedInUserRoles = sessionStorage.getItem('loggedInUserRoles');
+
+        if ( !document.getElementById("rate-ta-nav").classList.contains('active')){
+            document.getElementById("rate-ta-nav").classList.add('active')
+        }
+
+        //Define all the roles except student
+        let roles = ['taAdmin','ta','professor','sysop'];
+        let curr_roles = loggedInUserRoles? loggedInUserRoles:[];
+
+        let nav_id = {
+            'taAdmin':'ta-admin-nav',
+            'professor':'ta-mgnt-nav',
+            'ta':'ta-mgnt-nav',
+            'sysop':'sysop-nav'
+        }
+            
+        for(let i=0; i<roles.length; i++){
+            if (curr_roles.includes(roles[i])){
+                document.getElementById(nav_id[roles[i]]).style.display = "inline";
+            } else{
+                if((roles[i]==='professor' && curr_roles.includes('ta')) || 
+                    (roles[i]==='ta' && curr_roles.includes('professor'))){
+                        continue
+                }
+            }            
+        }
+
+        function update_nav(id){
+            document.getElementById('rate-ta-nav').classList.remove('active');
+            let pages_id = {
+            'rate-ta-nav':'rate-search.html',
+            'ta-admin-nav':'ta-admin.html',
+            'ta-mgnt-nav':'ta-mgnt.html',
+            'sysop-nav':'sysop.html'
+            }
+            window.location = pages_id[id];
+        }
+
         function logout(){
             if (loggedInUser !== null){     
                 sessionStorage.removeItem('currentlyLoggedIn');

@@ -87,6 +87,7 @@
         if (loggedInUser !== null){     
             document.getElementById('curr-user').innerHTML=loggedInUser
         }
+        
         let loggedInUserRoles = sessionStorage.getItem('loggedInUserRoles');
         function logout(){
             if (loggedInUser !== null){     
@@ -104,7 +105,6 @@
         //Define all the roles except student
         let roles = ['taAdmin','ta','professor','sysop'];
         let curr_roles = loggedInUserRoles? loggedInUserRoles:[];
-        console.log(curr_roles)
 
         let dashboard_id = {
             'taAdmin':'admin-dash',
