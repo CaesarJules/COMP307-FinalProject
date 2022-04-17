@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TA Manager | McGill University</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="top-banner">
+        <div class="logout-icon">
+            <a href="javascript:void(0);" id="logout" onclick="">
+                <i class="fa-solid fa-right-from-bracket"></i> Log Out
+            </a>
+        </div>
+
+        <div class="user-icon">
+            <i class="fa-solid fa-user-check"></i> jules.niyonkuru@mail.mcgill.ca
+        </div>
+    </div>
+
+    <div class="cs-logo">
+        <a href="dashboard.html"><img src="../assets/McGill-CS.png" alt="McGill Logo"></a>
+    </div>
+
+    <div class="header"></div>
+
+    <div class="ta-container" id="ta-form">
+        <div id="ta-form-header">
+            <div>
+                <h1>Edit Office Hours and Responsibilities</h1>
+            </div>
+            <div id="go-back-ta">
+                <button onclick="location.href = 'ta-mgnt.html';" id="go-back-ta-btn">Go Back to TA Management</button>
+            </div>
+        </div>
+        <form>
+            <table>
+                <thead>
+                    <th>TA</th>
+                    <th>Office Hours</th>
+                    <th>Responsibilities</th>
+                </thead>
+                <tbody>
+                    <td>Ada Lovelace</td>
+                    <td>
+                        <textarea name="ada-lovelace-oh">Monday 11:30AM-12:30PM, Wednesday 11:30AM-1:00PM</textarea>
+                    </td>
+                    <td>
+                        <textarea name="ada-lovelace-responsibilites">Students A-H</textarea>
+                    </td>
+                </tbody>
+            </table>
+            <button id="submit-oh-btn" type="submit">Apply Changes</button>
+        </form>
+    </div>
+    <div class="footer">
+        <div class="mcgill">
+            McGill University
+        </div>
+        <div class="copyright">
+            &copy; Lilia Haché, Adrien Philardeau, César Niyonkuru
+        </div>
+    </div>
+    
+</body>
+
+</html>

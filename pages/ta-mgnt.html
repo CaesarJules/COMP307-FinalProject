@@ -58,6 +58,29 @@
             </div>
             <div class="ta-mgnt oh-sheet">
                 <h3 class="title"></h3>
+                <div id="oh">
+                    <div id="ta-admin-header">
+                        <button id="edit-oh-btn" onclick="location.href = 'edit-oh.html';">Edit</button>
+                    </div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>TA</th>
+                                <th>Office Hours</th>
+                                <th>Responibilities</th>
+                            </tr>
+                            <tr>
+                                <td>Ada Lovelace</td>
+                                <td>
+                                    Monday 11:30AM-12:30PM<br>Wednesday 11:30AM-1:00PM
+                                </td>
+                                <td>
+                                    Students A-H
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="ta-mgnt channel">
                 <h3 class="title"></h3>
@@ -153,6 +176,10 @@
             }
 
             return false;
+        }
+
+        function edit_oh() {
+
         }
         
     </script>

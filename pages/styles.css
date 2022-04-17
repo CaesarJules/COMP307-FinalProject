@@ -363,11 +363,16 @@ tbody:empty::before {
     padding: 10px;
 }
 
-.edit-icon, #ta-icon {
+.edit-icon, #ta-icon{
     width: 30%;
     float: left;
     cursor: pointer;
 }
+
+.oh-edit {
+    cursor:pointer;
+}
+
 .edit-options {
     width: 30%;
     float: right;
@@ -397,7 +402,7 @@ tbody:empty::before {
     background-color: #ED1B2F;
 }
 
-#import-course #submit-file {
+#import-course #submit-file, #submit-oh-btn{
     margin-top: 20px;
     display:block;
     border: 0;
@@ -440,7 +445,7 @@ tbody:empty::before {
     padding: 1rem 0;
 }
 
-#ta-detail-name button {
+#ta-detail-name button{
     float:right;
     margin-left: 1.5rem;
     border: 0;
@@ -464,6 +469,14 @@ tbody:empty::before {
 
 #manual-add-course-form input {
     padding: 5px 10px;
+}
+
+textarea{
+    resize: none;
+    font-family: Helvetica, Arial, sans-serif;
+    padding: 7px;
+    height: 100px;
+    width: 90%;
 }
 
 .footer {
