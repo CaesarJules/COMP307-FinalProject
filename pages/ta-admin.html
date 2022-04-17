@@ -74,13 +74,18 @@
         if (loggedInUser !== null){     
             document.getElementById('curr-user').innerHTML=loggedInUser
         }
+        let loggedInUserRoles = sessionStorage.getItem('loggedInUserRoles');
         function logout(){
             if (loggedInUser !== null){     
                 sessionStorage.removeItem('currentlyLoggedIn');
+                if (loggedInUserRoles !== null){
+                    sessionStorage.removeItem('loggedInUserRoles');
+                }
                 window.location = "index.html";
             }
             return false;
-        }
+        }        
+
         get_data('')
     
         function update_content(){

@@ -100,14 +100,18 @@
         </div>
     </div>
     <script>
-        var loggedInUser = sessionStorage.getItem('currentlyLoggedIn');
+        let loggedInUser = sessionStorage.getItem('currentlyLoggedIn');
         if (loggedInUser !== null){     
             document.getElementById('curr-user').innerHTML=loggedInUser
         }
+        let loggedInUserRoles = sessionStorage.getItem('loggedInUserRoles');
         function logout(){
             if (loggedInUser !== null){     
                 sessionStorage.removeItem('currentlyLoggedIn');
-                window.location = "index.html"
+                if (loggedInUserRoles !== null){
+                    sessionStorage.removeItem('loggedInUserRoles');
+                }
+                window.location = "index.html";
             }
             return false;
         }
