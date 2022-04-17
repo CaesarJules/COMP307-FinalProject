@@ -117,7 +117,8 @@
                 }else if (curr==='ta_current_courses' || curr === 'ta_past_courses') {
                     courses.push(storedValue)
                 }
-            }              
+            }
+        }            
 
         for(index in courses) {
             courseSelect.options[courseSelect.options.length] = new Option(courses[index], courses[index]);
