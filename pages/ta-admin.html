@@ -33,29 +33,53 @@
     <div class="header"></div>
 
     <div class="ta-container" id="ta-admin-container">
-        <h1>TA Administration</h1>
-        <p>The following table contains all TAs in the current cohort.</p>
-        <p>Click on a TA's name for more information.</p>
-        <div id="ta-admin-header">
-            <input oninput="return update_content()" id="search-ta-course" type="search" name="search-ta-course" placeholder="Search by TA name">
-            <button onclick="location.href = 'add-ta.html';">Add a TA</button>
-            <button onclick="location.href = '#';">Switch to Course View</button>
+        <div id="ta-view">
+            <h1>TA Administration</h1>
+            <p>The following table contains all TAs in the current cohort.</p>
+            <p>Click on a TA's name for more information.</p>
+            <div id="ta-admin-header">
+                <input oninput="return update_content(false)" id="search-ta-course" type="search" name="search-ta-course" placeholder="Search by TA name">
+                <button onclick="location.href = 'add-ta.html';">Add a TA</button>
+                <button onclick="courseView()">Switch to Course View</button>
+            </div>
+            <div id="admin-table-container" >
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>TA Name</th>
+                            <th>Student ID</th>
+                            <th>Current Courses</th>
+                            <th>Past Courses</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ta-database">
+                        
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div id="admin-table-container" >
-            <table class="admin-table">
-                <thead>
-                    <tr>
-                        <th>TA Name</th>
-                        <th>Student ID</th>
-                        <th>Current Courses</th>
-                        <th>Past Courses</th>
-                    </tr>
-                </thead>
-                <tbody id="ta-database">
-                    
-                </tbody>
-                
-            </table>
+        <div id="course-view">
+            <h1>TA Administration</h1>
+            <p>The following table contains all courses.</p>
+            <p>Click on a course number for more information.</p>
+            <div id="ta-admin-header">
+                <input oninput="return update_content(true)" id="search-ta-course" type="search" name="search-ta-course" placeholder="Search by Course Number">
+                <button onclick="location.href = 'add-ta.html';">Add a TA</button>
+                <button onclick="taView()">Switch to TA View</button>
+            </div>
+            <div id="admin-table-container" >
+                <table class="admin-table">
+                    <thead>
+                        <th>Course Number</th>
+                        <th>Course Name</th>
+                        <th>Term</th>
+                        <th>Instructor</th>
+                    </thead>
+                    <tbody id="ta-database">
+    
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -69,6 +93,9 @@
     </div>
 
     <script>
+
+        // display ta view
+        taView();
 
         let loggedInUser = sessionStorage.getItem('currentlyLoggedIn');
         if (loggedInUser !== null){     
@@ -86,10 +113,10 @@
             return false;
         }        
 
-        get_data('')
+        get_data('', false)
     
-        function update_content(){
-            get_data(document.getElementById("search-ta-course").value);
+        function update_content(courseView){
+            get_data(document.getElementById("search-ta-course").value, courseView);
             return false;
         }
         
@@ -106,7 +133,7 @@
             return false;
         }
     
-        function get_data(username){
+        function get_data(username, courseView){
     
             var request = new XMLHttpRequest();
             request.open('POST', 'https://www.cs.mcgill.ca/~aphila/cgi-bin/ta-admin.py');
@@ -148,6 +175,18 @@
                 
             request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             request.send();
+        }
+
+        function courseView() {
+            // switch to course view
+            document.getElementById("ta-view").style.display = "none";
+            document.getElementById("course-view").style.display = "block";
+        }
+
+        function taView() {
+            // switch to ta view
+            document.getElementById("ta-view").style.display = "block";
+            document.getElementById("course-view").style.display = "none";
         }
     
     
