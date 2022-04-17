@@ -95,7 +95,7 @@ a, a:visited, a:hover{
 }
 .task {
     width:30%;
-    display: none;
+    display: inline-block;
     background-color: #F4F4F4;
     margin: 2%;
 }
@@ -278,7 +278,7 @@ tbody:empty::before {
 }
 .ta-mgnt h3 {
     text-align: center;
-    margin: 7% auto;
+    margin: 5% auto;
 }
 .course-history, .manage-users, .select-courses {
     display: block;
@@ -503,4 +503,193 @@ textarea{
 .copyright {
     padding: 0%;
     float: right;
+}
+
+/* Size definition for large devices (i.e: laptops/desktops) */
+@media only screen and (min-width: 992px) {
+    .col-l-1 {width: 8.33%;}
+    .col-l-2 {width: 16.66%;}
+    .col-l-3 {width: 25%;}
+    .col-l-4 {width: 33.33%;}
+    .col-l-5 {width: 41.66%;}
+    .col-l-6 {width: 50%;}
+    .col-l-7 {width: 58.33%;}
+    .col-l-8 {width: 66.66%;}
+    .col-l-9 {width: 75%;}
+    .col-l-10 {width: 83.33%;}
+    .col-l-11 {width: 91.66%;}
+    .col-l-12 {width: 100%;}
+}
+/* Size definition for small and medium screen size devices (i.e: tablets ) */
+@media only screen and (max-width: 992px) {
+    .task-name {
+        font-size: 2vh;
+    }
+    .cs-logo {
+        margin: auto;
+    }
+    .dashboard-container, .global-container {
+        margin: 30% auto;
+    }
+    .ta-container{
+        width: 75%;
+        margin: 25% auto;
+    }
+    #ta-admin-header, #ta-form-header{
+        width: 80%;
+    }
+    #ta-admin-header button, #ta-form-header button{
+        margin:0 10px;
+    }
+    #manage-users-header input {
+        width: auto;
+    }
+    #manage-users-header button {
+        width: 20%;
+    }
+    #manage-users-header {
+        margin-bottom: 10%;
+    }
+    #manual-add-course-form td {
+        padding-right: 5em;
+    }
+    #ta-form > #ta-form-header {
+        height: 20%;
+        padding-left: 0;
+        font-size: small;
+    }
+    #go-back-ta {
+        float: left;
+        margin-top: 5%;
+    }
+    .global-sidebar {
+        font-size: 15px;
+        margin-bottom: 10%;
+    }
+    .col-m-1 {width: 8.33%;}
+    .col-m-2 {width: 16.66%;}
+    .col-m-3 {width: 25%;}
+    .col-m-4 {width: 33.33%;}
+    .col-m-5 {width: 41.66%;}
+    .col-m-6 {width: 50%;}
+    .col-m-7 {width: 58.33%;}
+    .col-m-8 {width: 66.66%;}
+    .col-m-9 {width: 75%;}
+    .col-m-10 {width: 83.33%;}
+    .col-m-11 {width: 91.66%;}
+    .col-m-12 {width: 100%;}
+}
+
+/* Size definition for extra small devices (i.e: phones) */
+@media only screen and (max-width: 600px) {
+
+    [class*="col-"] {
+        width: 100%;
+    }
+
+    .task-name {
+        font-size: 2vh;
+    }
+    .header {
+        height: 10%;
+        margin-top: 15%;
+    }
+    .logout-icon, .user-icon {
+        width: 20%;
+        margin-right: 10%;
+    }
+    .cs-logo-img {
+        object-fit: cover;
+        left: 0;
+        height: 15%;
+        width: 70%;
+        margin: auto;
+    }
+    .dashboard-container, .global-container, #ta-form{
+        margin: 40% auto;
+    }
+    .mcgill, .copyright {
+        display: inline;
+        margin: 0% 10%;
+    }
+    .copyright {
+        width: auto;
+        height: auto;
+        float: left;
+        font-size: small;
+    }
+    .footer {
+        height: 15%;
+    }
+    .ta-container{
+        width: 80%;
+        margin: 25% auto;
+    }
+
+    #ta-admin-header, #ta-form-header{
+        width: 75%;
+    }
+    #ta-admin-header button, #ta-form-header button{
+        margin:0 5px;
+        font-size: small;
+    }
+    /* The line below does not work, check the table in ta-admin
+    #admin-table-container table {
+        width: 400px;
+        margin: auto;   
+    }
+    */
+    .global-sidebar {
+        font-size: 15px;
+        margin-bottom: 10%;
+    }
+    #manage-users-header input {
+        width: 50%;
+    }
+    #manage-users-header button {
+        width: 30%;
+    }
+    #manage-users-header {
+        margin-bottom: 20%;
+    }
+    #manual-add-course-form td, .sysop {
+        padding-right: 0;
+        font-size: small;
+    }
+    .manage-users > div table {
+        max-width: fit-content;
+    }
+    .title {
+        font-size: 20px;
+        text-align: left;
+    }
+    #oh table{
+        margin-top: 20%;
+    }
+    #ta-admin-header{
+        width: 20%;
+        height: 7%;
+        margin-left: 15%;
+    }
+    #ta-form > #ta-form-header {
+        height: 30%;
+        padding-left: 0;
+        font-size: small;
+    }
+    #go-back-ta {
+        float: left;
+        margin-top: 20%;
+    }
+    .col-s-1 {width: 8.33%;}
+    .col-s-2 {width: 16.66%;}
+    .col-s-3 {width: 25%;}
+    .col-s-4 {width: 33.33%;}
+    .col-s-5 {width: 41.66%;}
+    .col-s-6 {width: 50%;}
+    .col-s-7 {width: 58.33%;}
+    .col-s-8 {width: 66.66%;}
+    .col-s-9 {width: 75%;}
+    .col-s-10 {width: 83.33%;}
+    .col-s-11 {width: 91.66%;}
+    .col-s-12 {width: 100%;}
 }
