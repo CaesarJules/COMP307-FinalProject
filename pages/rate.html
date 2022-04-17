@@ -78,79 +78,74 @@
             &copy; Lilia Haché, Adrien Philardeau, César Niyonkuru
         </div>
     </div>
-
-</body>
-
-<script>
-    
-    let loggedInUser = sessionStorage.getItem('currentlyLoggedIn');
-    if (loggedInUser !== null){     
-        document.getElementById('curr-user').innerHTML=loggedInUser
-    }
-    let loggedInUserRoles = sessionStorage.getItem('loggedInUserRoles');
-    function logout(){
+    <script>
+        let loggedInUser = sessionStorage.getItem('currentlyLoggedIn');
         if (loggedInUser !== null){     
-            sessionStorage.removeItem('currentlyLoggedIn');
-            if (loggedInUserRoles !== null){
-                sessionStorage.removeItem('loggedInUserRoles');
-            }
-            window.location = "index.html";
+            document.getElementById('curr-user').innerHTML=loggedInUser;
         }
-        return false;
-    }
-
-    const form = document.getElementById('form');
-    form.addEventListener('submit', feedback);
-
-    function feedback(event){
-        event.preventDefault();
-        let review = document.getElementById("review");
-        if (review.value === ""){
-            review.style.border = "1px solid #ED1B2F";
-        }
-        else{
-            review.value = "";
-            document.getElementById("sucess").innerHTML = "Your review has been submitted.";
-            review.style.border = "";
-        }
-    }
-    loadCachedData();
-
-    function loadCachedData(){
-        let fields = ['ta_name', 'ta_mcgill_id', 'ta_current_courses', 'ta_past_courses'];
-        let courses = []
-        for (let i=0; i<fields.length; i++){
-            var curr = fields[i];
-            storedValue = sessionStorage.getItem(curr);
-            if (storedValue !== null){ 
-                if (curr==='ta_name') {
-                    console.log("got here");
-                    let temp = document.getElementsByClassName('ta-name')[0];
-                    temp.innerHTML = "Rate " + storedValue;
-                    // let ta_names = storedValue.split(" ");
-                    // let ta_email = ta_names.join('.')+"@mail.mcgill.ca"
-                    // document.getElementById('ta-email').innerHTML = ta_email;
-                    // document.getElementById('email-href').setAttribute("href",`mailto:${ta_email}`); 
-                }else if (curr==='ta_current_courses' || curr === 'ta_past_courses') {
-                    courses.push(storedValue)
+        let loggedInUserRoles = sessionStorage.getItem('loggedInUserRoles');
+        function logout(){
+            if (loggedInUser !== null){     
+                sessionStorage.removeItem('currentlyLoggedIn');
+                if (loggedInUserRoles !== null){
+                    sessionStorage.removeItem('loggedInUserRoles');
                 }
-            }              
-
-        for(index in courses) {
-            courseSelect.options[courseSelect.options.length] = new Option(courses[index], courses[index]);
+                window.location = "index.html";
+            }
+            return false;
         }
+        loadCachedData();
 
+        const form = document.getElementById('form');
+        form.addEventListener('submit', feedback);
 
-        //Clear the session storage values for a better experience with register later
-        for (let i=0; i<fields.length; i++){
-            curr = fields[i];
-            storedValue = sessionStorage.getItem(curr);
-            if (storedValue !== null){
-                sessionStorage.removeItem(curr);
+        function feedback(event){
+            event.preventDefault();
+            let review = document.getElementById("review");
+            if (review.value === ""){
+                review.style.border = "1px solid #ED1B2F";
+            }
+            else{
+                review.value = "";
+                document.getElementById("sucess").innerHTML = "Your review has been submitted.";
+                review.style.border = "";
             }
         }
-    }
 
-</script>
+        function loadCachedData(){
+            let fields = ['ta_name', 'ta_mcgill_id', 'ta_current_courses', 'ta_past_courses'];
+            let courses = []
+            for (let i=0; i<fields.length; i++){
+                var curr = fields[i];
+                storedValue = sessionStorage.getItem(curr);
+                if (storedValue !== null){ 
+                    if (curr==='ta_name') {
+                        console.log("got here");
+                        let temp = document.getElementsByClassName('ta-name')[0];
+                        temp.innerHTML = "Rate " + storedValue;
+                        // let ta_names = storedValue.split(" ");
+                        // let ta_email = ta_names.join('.')+"@mail.mcgill.ca"
+                        // document.getElementById('ta-email').innerHTML = ta_email;
+                        // document.getElementById('email-href').setAttribute("href",`mailto:${ta_email}`); 
+                    }else if (curr==='ta_current_courses' || curr === 'ta_past_courses') {
+                        courses.push(storedValue)
+                    }
+                }              
+            }
 
+            for(index in courses) {
+                courseSelect.options[courseSelect.options.length] = new Option(courses[index], courses[index]);
+            }
+            //Clear the session storage values for a better experience with register later
+            for (let i=0; i<fields.length; i++){
+                curr = fields[i];
+                storedValue = sessionStorage.getItem(curr);
+                if (storedValue !== null){
+                    sessionStorage.removeItem(curr);
+                }
+            }
+        }
+    </script>
+    
+</body>
 </html>
