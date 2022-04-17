@@ -19,7 +19,7 @@
 
     <div class="top-banner">
         <div class="logout-icon">
-            <a href="javascript:void(0);" id="logout" onclick="">
+            <a href="index.html" id="logout" onclick="">
                 <i class="fa-solid fa-right-from-bracket"></i> Log Out
             </a>
         </div>
@@ -49,7 +49,7 @@
             <h1>TA Management</h1>
             <div class="ta-mgnt select-courses">
                 <div class="dropdown">
-                    <button class="course-btn">Course</button>
+                    <button class="course-btn">Select Course</button>
                     <div class="dropdown-content">
                       <a href="javascript:;" onclick="return submit_selection(this.innerHTML)">COMP 307</a>
                       <a href="javascript:;" onclick="return submit_selection(this.innerHTML)">COMP 521</a>
@@ -64,6 +64,14 @@
             </div>
             <div class="ta-mgnt performance-log">
                 <h3 class="title"></h3>
+               
+                <label for="tas">Choose a TA:</label>
+                <select name="TAs" id="selectTA" onchange="selectTA()">
+                <option value="">Select</option>
+                </select> 
+
+                <div id="comment"></div>
+
             </div>
             <div class="ta-mgnt wish-list">
                 <h3 class="title"></h3>
@@ -84,9 +92,33 @@
     </div>
 
     <script>
-        {
-            var current_course = '';
+
+        function selectTA(){
+            var TA = document.getElementById("selectTA").value;
+            if (TA !== "select"){
+                var div = document.getElementById("comment");
+                if (div.childElementCount > 0){
+                    return;
+                }
+                var box = document.createElement("textarea");
+                box.setAttribute("rows", "3");
+                box.setAttribute("cols", "50");
+                box.setAttribute("placeholder", "Write a review");
+                div.appendChild(box);
+
+                div.appendChild(document.createElement("br"));
+                div.appendChild(document.createElement("br"));
+                
+                btn = document.createElement("input");
+                btn.setAttribute("type", "submit");
+                btn.setAttribute("value", "submit");
+                div.appendChild(btn);
+                // <input type="submit" value="Submit">
+            }
         }
+
+        var current_course = '';
+
         function submit_selection(choice) {
 
             let menus = document.getElementsByClassName("sidebar-btn");
@@ -144,6 +176,33 @@
 
             return false;
         }
+
+
+        var request = new XMLHttpRequest();
+            request.open('POST', 'https://www.cs.mcgill.ca/~aphila/cgi-bin/ta-admin.py');
+            request.onload = function(){
+                var data = request.responseText;
+                var htmlObject = document.createElement('div');
+                htmlObject.innerHTML = data;
+                tags = htmlObject.getElementsByTagName("h2");
+        
+                var TAs = [];
+                for (var i = 0; i < tags.length; i++){
+                    TAs.push(tags[i].innerHTML.split(','));
+                }
+                select = document.getElementById("selectTA");
+                for (var ta of TAs){
+                    var option = document.createElement("option");
+                    option.text = ta[0];
+                    select.appendChild(option);
+                }
+                // var htmlObject = document.createElement('div');
+                // htmlObject.innerHTML = data;
+    
+            }
+                
+            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            request.send();
         
     </script>
     
