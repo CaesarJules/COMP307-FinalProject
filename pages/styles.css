@@ -164,6 +164,7 @@ a, a:visited, a:hover{
     padding: 10px;
     margin: 0 5px;
     transition: 0.25s;
+    cursor: pointer;
 }
 
 .rate-option:hover {
@@ -403,7 +404,7 @@ tbody:empty::before {
     background-color: #ED1B2F;
 }
 
-#import-course #submit-file, #submit-oh-btn{
+#import-course #submit-file, #submit-oh-btn, #submit-review{
     margin-top: 20px;
     display:block;
     border: 0;
@@ -415,7 +416,7 @@ tbody:empty::before {
     background-color: #000000;
 }
 
-#import-course #submit-file:hover, #submit-oh-btn:hover {
+#import-course #submit-file:hover, #submit-oh-btn:hover, #submit-review:hover {
     color: black;
     background-color: #ED1B2F;
 }
