@@ -48,7 +48,6 @@
             <button class="sidebar-btn sub_btn" id="ta_mgnt_b3" onclick="return update_page('ta_mgnt_b3')">Channel</button> 
             <button class="sidebar-btn sub_btn" id="ta_mgnt_b4" onclick="return update_page('ta_mgnt_b4')">Prof's TA performance log</button>
             <button class="sidebar-btn sub_btn" id="ta_mgnt_b5" onclick="return update_page('ta_mgnt_b5')">TA Wish List</button>
-            <button class="sidebar-btn" id="ta_mgnt_b6" onclick="return update_page('ta_mgnt_b6','')">All TA's Report</button> 
         </div>
         <div class="global-main col-m-12 col-s-12">
             <h1>TA Management</h1>
@@ -93,8 +92,8 @@
             <div class="ta-mgnt performance-log">
                 <h3 class="title"></h3>
                
-                <label for="tas">Choose a TA:</label>
-                <select name="TAs" id="selectTA" onchange="selectTA()">
+                <label for="tas">Choose a TA: </label>
+                <select name="TAs" id="selectTA" onchange="selectTA()" style="padding:10px;">
                     <option value="">Select</option>
                 </select> 
 
@@ -271,7 +270,6 @@
                 'ta_mgnt_b3':'channel',
                 'ta_mgnt_b4':'performance-log',
                 'ta_mgnt_b5':'wish-list',
-                'ta_mgnt_b6':'report'
             }
             
             for(let i=0; i<menus.length; i++){
