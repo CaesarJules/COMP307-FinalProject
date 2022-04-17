@@ -93,6 +93,7 @@
 
     <script>
 
+
         function selectTA(){
             var TA = document.getElementById("selectTA").value;
             if (TA !== "select"){
@@ -117,7 +118,19 @@
             }
         }
 
+
         var current_course = '';
+        let storedValue = sessionStorage.getItem('current_course');
+        if (storedValue !== null){
+            current_course=storedValue;
+        }
+            
+        if (current_course.length>0){
+            document.getElementsByClassName('select-courses')[0].display='none';
+            document.getElementsByClassName('oh-sheet')[0].display='block';
+            document.getElementById('ta_mgnt_b1').backgroundColor='white';
+            document.getElementById('ta_mgnt_b2').backgroundColor="#f4f4f4";
+        }
 
         function submit_selection(choice) {
 
