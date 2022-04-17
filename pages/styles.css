@@ -347,6 +347,7 @@ tbody:empty::before {
 .detail-info {
     font-size: 14px;
     margin: 0;
+    background-color: #f4f4f4;
 }
 
 .detail-info td{
@@ -439,6 +440,7 @@ tbody:empty::before {
     margin:0;
     margin-bottom:10px;
     font-size: 14px;
+    background-color: #f4f4f4;
 }
 
 #ta-detail-name td {
