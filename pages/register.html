@@ -46,12 +46,12 @@
         </select>
       </span>
       <span style="padding: 0%;">
-        <select id="role" name="role" class="selectpicker" data-live-search="true" >
+        <select id="role" name="role" class="selectpicker" multiple data-live-search="true" >
           <option value="" selected disabled><font color:black>Role</font></option>
           <option value="student">Student</option>
+          <option value="ta">Teaching assistant</option>
           <option value="professor">Professor</option>
           <option value="ta-admin">TA administrator</option>
-          <option value="ta">Teaching assistant</option>
           <option value="sysop">System operator</option>
         </select>
       </span>
@@ -121,13 +121,16 @@
 
       var course = document.getElementById('login-form').elements['course'].value;
       var term = document.getElementById('login-form').elements['term'].value;
-      var role = document.getElementById('login-form').elements['role'].value;
+      //var role = document.getElementById('login-form').elements['role'].value;
+      var temp = Array.from(document.getElementById('login-form').elements['role'].options).filter(option => option.selected).map(option => option.value);
+      temp.shift();
+      var role = temp[0]
       
       var request = new XMLHttpRequest();
       request.open('POST', 'https://www.cs.mcgill.ca/~aphila/cgi-bin/register.py');
       request.onload = function () {
         sessionStorage.setItem("currentlyLoggedIn", email);
-        sessionStorage.setItem("loggedInUserRole", role);
+        sessionStorage.setItem("loggedInUserRoles", temp);
         if ($('#register-btn').value==="Update"){
           window.location.href = "./sysop.html";
         }else{
@@ -138,6 +141,7 @@
       request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       request.send("fname=" + fname + "&lname=" + lname + "&id=" + id + "&course=" + course + 
       "&term=" + term + "&role=" + role + "&email=" + email + "&password=" + password + "&confirm=" + confirm);
+      
     }
 
     const form = document.getElementById('login-form');
