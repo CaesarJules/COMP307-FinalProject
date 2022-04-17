@@ -43,44 +43,43 @@
         </div>
     </div>
 
-  </body>
-
-  <script>
-    function logSubmit(event) {
-      event.preventDefault();
-      var email = document.getElementById('login-form').elements['email'].value;
-      var password = document.getElementById('login-form').elements['password'].value;
-      var request = new XMLHttpRequest();
-      request.open('POST', 'https://www.cs.mcgill.ca/~aphila/cgi-bin/login.py');
-      request.onload = function(){
-        var data = request.responseText;
-        var htmlObject = document.createElement('div');
-        htmlObject.innerHTML = data;
-        console.log(htmlObject.getElementsByTagName("h2")[0].innerHTML.trim());
-        if (htmlObject.getElementsByTagName("h2")[0].innerHTML.trim() === "True"){
-          // Update first the error messages in case the previous login failed!!!
-          console.log("got here!");
-          document.getElementById("error-log").style.display = "none";
-          loginCredentials = document.getElementsByClassName("login-box");
-          for(let i=0; i<loginCredentials.length; i++){
-            loginCredentials[i].style.border = "";
+    <script>
+      function logSubmit(event) {
+        event.preventDefault();
+        var email = document.getElementById('login-form').elements['email'].value;
+        var password = document.getElementById('login-form').elements['password'].value;
+        var request = new XMLHttpRequest();
+        request.open('POST', 'https://www.cs.mcgill.ca/~aphila/cgi-bin/login.py');
+        request.onload = function(){
+          var data = request.responseText;
+          var htmlObject = document.createElement('div');
+          htmlObject.innerHTML = data;
+          console.log(htmlObject.getElementsByTagName("h2")[0].innerHTML.trim());
+          if (htmlObject.getElementsByTagName("h2")[0].innerHTML.trim() === "True"){
+            // Update first the error messages in case the previous login failed!!!
+            document.getElementById("error-log").style.display = "none";
+            loginCredentials = document.getElementsByClassName("login-box");
+            for(let i=0; i<loginCredentials.length; i++){
+              loginCredentials[i].style.border = "";
+            }
+            sessionStorage.setItem("currentlyLoggedIn", email);
+            window.location.href = "dashboard.html";
           }
-          window.location.href = "https://www.cs.mcgill.ca/~aphila/COMP307-FinalProject/pages/dashboard.html";
-        }
-        else{
-          document.getElementById("error-log").style.display = "block";
-          loginCredentials = document.getElementsByClassName("login-box");
-          for(let i=0; i<loginCredentials.length; i++){
-            loginCredentials[i].style.border = "1px solid #ED1B2F";
+          else{
+            document.getElementById("error-log").style.display = "block";
+            loginCredentials = document.getElementsByClassName("login-box");
+            for(let i=0; i<loginCredentials.length; i++){
+              loginCredentials[i].style.border = "1px solid #ED1B2F";
+            }
           }
         }
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        request.send("email="+email+"&password="+password);
       }
-      request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      request.send("email="+email+"&password="+password);
-    }
 
-    const form = document.getElementById('login-form');
-    form.addEventListener('submit', logSubmit);
+      const form = document.getElementById('login-form');
+      form.addEventListener('submit', logSubmit);
 
-  </script>
+    </script>
+  </body>
 </html>

@@ -13,13 +13,13 @@
 
     <div class="top-banner">
         <div class="logout-icon">
-            <a href="index.html" id="logout">
+            <a href="javascript:;" onclick="return logout()" id="logout">
                 <i class="fa-solid fa-right-from-bracket"></i> Log Out
             </a>
         </div>
 
         <div class="user-icon">
-            <i class="fa-solid fa-user-check"></i> jules.niyonkuru@mail.mcgill.ca
+            <i class="fa-solid fa-user-check"></i><font id="curr-user" ></font> 
         </div>
     </div>
 
@@ -83,7 +83,19 @@
     </div>
 
     <script>
-        sessionStorage.clear();
+        let loggedInUser = sessionStorage.getItem('currentlyLoggedIn');
+        if (loggedInUser !== null){     
+            document.getElementById('curr-user').innerHTML=loggedInUser
+        }
+        function logout(){
+            if (loggedInUser !== null){     
+                sessionStorage.removeItem('currentlyLoggedIn');
+                window.location = "index.html";
+            }
+            return false;
+        }
+        
+        let loggedInUserRole = sessionStorage.getItem('loggedInUserRole');
         /*
         //Define all the roles except student
         let roles = ['professor','ta-admin','ta', 'sysop'];
@@ -109,7 +121,6 @@
             }            
         }
         */
-
     </script>
 
 </body>

@@ -78,71 +78,71 @@
     </div>
   </div>
 
-</body>
+  <script>
+    loadCachedData()
+    $('select').selectpicker();
 
-<script>
-  loadCachedData()
-  $('select').selectpicker();
+    function loadCachedData(){
+      let fields = ['fname', 'lname', 'mcgill-id', 'course', 'term', 'role', 'email'];
 
-  function loadCachedData(){
-    let fields = ['fname', 'lname', 'mcgill-id', 'course', 'term', 'role', 'email'];
-
-    for (let i=0; i<fields.length; i++){
-      var curr = fields[i];
-      storedValue = sessionStorage.getItem(curr);
-      if (storedValue !== null){  
-        document.getElementById('login-form').elements[curr].value = storedValue;
-        var submitBtnTxt = $('#register-btn');
-        if (submitBtnTxt.value!=="Update"){
-          submitBtnTxt.val("Update");
-          $('#title-header').html("Update");
-          $('#back-option').html("Back to Sysop");
+      for (let i=0; i<fields.length; i++){
+        var curr = fields[i];
+        storedValue = sessionStorage.getItem(curr);
+        if (storedValue !== null){  
+          document.getElementById('login-form').elements[curr].value = storedValue;
+          var submitBtnTxt = $('#register-btn');
+          if (submitBtnTxt.value!=="Update"){
+            submitBtnTxt.val("Update");
+            $('#title-header').html("Update");
+            $('#back-option').html("Back to Sysop");
+          }
+          
         }
-        
+      }
+      //Clear the session storage values for a better experience with register later
+      for (let i=0; i<fields.length; i++){
+        curr = fields[i];
+        storedValue = sessionStorage.getItem(curr);
+        if (storedValue !== null){
+          sessionStorage.removeItem(curr);
+        }
       }
     }
-    //Clear the session storage values for a better experience with register later
-    for (let i=0; i<fields.length; i++){
-      curr = fields[i];
-      storedValue = sessionStorage.getItem(curr);
-      if (storedValue !== null){
-        sessionStorage.removeItem(curr);
+
+    function logSubmit(event) {
+      event.preventDefault();
+      var email = document.getElementById('login-form').elements['email'].value;
+      var password = document.getElementById('login-form').elements['password'].value;
+      var confirm = document.getElementById('login-form').elements['confirm_password'].value;
+
+      var fname = document.getElementById('login-form').elements['fname'].value;
+      var lname = document.getElementById('login-form').elements['lname'].value;
+      var id = document.getElementById('login-form').elements['mcgill-id'].value;
+
+      var course = document.getElementById('login-form').elements['course'].value;
+      var term = document.getElementById('login-form').elements['term'].value;
+      var role = document.getElementById('login-form').elements['role'].value;
+      
+      var request = new XMLHttpRequest();
+      request.open('POST', 'https://www.cs.mcgill.ca/~aphila/cgi-bin/register.py');
+      request.onload = function () {
+        sessionStorage.setItem("currentlyLoggedIn", email);
+        sessionStorage.setItem("loggedInUserRole", role);
+        if ($('#register-btn').value==="Update"){
+          window.location.href = "./sysop.html";
+        }else{
+          window.location.href = "./dashboard.html";
+        }
       }
+      console.log(fname, lname, id, course, term, role, email, password, confirm)
+      request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      request.send("fname=" + fname + "&lname=" + lname + "&id=" + id + "&course=" + course + 
+      "&term=" + term + "&role=" + role + "&email=" + email + "&password=" + password + "&confirm=" + confirm);
     }
-  }
 
-  function logSubmit(event) {
-    event.preventDefault();
-    var email = document.getElementById('login-form').elements['email'].value;
-    var password = document.getElementById('login-form').elements['password'].value;
-    var confirm = document.getElementById('login-form').elements['confirm_password'].value;
+    const form = document.getElementById('login-form');
+    form.addEventListener('submit', logSubmit);
 
-    var fname = document.getElementById('login-form').elements['fname'].value;
-    var lname = document.getElementById('login-form').elements['lname'].value;
-    var id = document.getElementById('login-form').elements['mcgill-id'].value;
-
-    var course = document.getElementById('login-form').elements['course'].value;
-    var term = document.getElementById('login-form').elements['term'].value;
-    var role = document.getElementById('login-form').elements['role'].value;
-    
-    var request = new XMLHttpRequest();
-    request.open('POST', 'https://www.cs.mcgill.ca/~aphila/cgi-bin/register.py');
-    request.onload = function () {
-      if ($('#register-btn').value==="Update"){
-        window.location.href = "https://www.cs.mcgill.ca/~aphila/COMP307-FinalProject/pages/sysop.html";
-      }else{
-        window.location.href = "https://www.cs.mcgill.ca/~aphila/COMP307-FinalProject/pages/dashboard.html";
-      }
-    }
-    console.log(fname, lname, id, course, term, role, email, password, confirm)
-    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    request.send("fname=" + fname + "&lname=" + lname + "&id=" + id + "&course=" + course + 
-    "&term=" + term + "&role=" + role + "&email=" + email + "&password=" + password + "&confirm=" + confirm);
-  }
-
-  const form = document.getElementById('login-form');
-  form.addEventListener('submit', logSubmit);
-
-</script>
-
+  </script>
+</body>
 </html>
