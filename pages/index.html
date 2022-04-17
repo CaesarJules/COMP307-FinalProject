@@ -63,6 +63,8 @@
               loginCredentials[i].style.border = "";
             }
             sessionStorage.setItem("currentlyLoggedIn", email);
+            let roles = htmlObject.getElementsByTagName("h2")[1].innerHTML.trim().split("+");
+            sessionStorage.setItem("loggedInUserRoles", roles);
             window.location.href = "dashboard.html";
           }
           else{

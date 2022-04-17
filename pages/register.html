@@ -124,7 +124,7 @@
       //var role = document.getElementById('login-form').elements['role'].value;
       var temp = Array.from(document.getElementById('login-form').elements['role'].options).filter(option => option.selected).map(option => option.value);
       temp.shift();
-      var role = temp[0]
+      var role = temp.join("+")
       
       var request = new XMLHttpRequest();
       request.open('POST', 'https://www.cs.mcgill.ca/~aphila/cgi-bin/register.py');
