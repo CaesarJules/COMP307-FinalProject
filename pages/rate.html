@@ -94,6 +94,11 @@
             }
             return false;
         }
+                   
+
+        for(index in courses) {
+            courseSelect.options[courseSelect.options.length] = new Option(courses[index], courses[index]);
+        }
         loadCachedData();
 
         const form = document.getElementById('form');
