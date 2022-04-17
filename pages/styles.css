@@ -95,7 +95,7 @@ a, a:visited, a:hover{
 }
 .task {
     width:30%;
-    display: inline-block;
+    display: none;
     background-color: #F4F4F4;
     margin: 2%;
 }

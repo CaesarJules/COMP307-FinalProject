@@ -30,6 +30,16 @@
     <div class="header"></div>
 
     <div class="dashboard-container">
+        <div style="display: inline-block;" id="rating-dash" class="task">
+            <a href="rate-search.html">
+                <div class="task-name">
+                    <p>Rate a TA</p>
+                </div>
+                <div class="task-logo">
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+            </a>
+        </div>
         <div id="admin-dash" class="task" >
             <a href="ta-admin.html">
                 <div class="task-name">
@@ -47,16 +57,6 @@
                 </div>
                 <div class="task-logo">
                     <i class="fa-solid fa-bars-progress"></i>
-                </div>
-            </a>
-        </div>
-        <div id="rating-dash" class="task">
-            <a href="rate-search.html">
-                <div class="task-name">
-                    <p>Rate a TA</p>
-                </div>
-                <div class="task-logo">
-                    <i class="fa-solid fa-star-half-stroke"></i>
                 </div>
             </a>
         </div>
@@ -87,20 +87,23 @@
         if (loggedInUser !== null){     
             document.getElementById('curr-user').innerHTML=loggedInUser
         }
+        let loggedInUserRoles = sessionStorage.getItem('loggedInUserRoles');
         function logout(){
             if (loggedInUser !== null){     
                 sessionStorage.removeItem('currentlyLoggedIn');
+                if (loggedInUserRoles !== null){
+                    sessionStorage.removeItem('loggedInUserRoles');
+                }
                 window.location = "index.html";
             }
             return false;
         }
         
-        let loggedInUserRole = sessionStorage.getItem('loggedInUserRole');
-        /*
+        
+ 
         //Define all the roles except student
-        let roles = ['professor','ta-admin','ta', 'sysop'];
-        //TODO: Get from the backend the currently logged-in account roles
-        let curr_roles = ['sysop', 'professor', 'ta-admin'];
+        let roles = ['ta-admin','ta','professor','sysop'];
+        let curr_roles = loggedInUserRoles? loggedInUserRoles:[];
 
         let dashboard_id = {
             'ta-admin':'admin-dash',
@@ -111,16 +114,15 @@
             
         for(let i=0; i<roles.length; i++){
             if (curr_roles.includes(roles[i])){
-                document.getElementById(dashboard_id[roles[i]]).style.display = "block";
+                document.getElementById(dashboard_id[roles[i]]).style.display = "inline-block";
             } else{
                 if((roles[i]==='professor' && curr_roles.includes('ta')) || 
                     (roles[i]==='ta' && curr_roles.includes('professor'))){
                         continue
-                    }
-                document.getElementById(dashboard_id[roles[i]]).style.display = "none";
+                }
             }            
         }
-        */
+        
     </script>
 
 </body>
