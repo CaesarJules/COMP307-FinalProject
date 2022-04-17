@@ -391,6 +391,12 @@ tbody:empty::before {
     cursor:pointer;
 }
 
+#add-to-wishlist {
+    margin-top: 5%;
+    border-top: 1px solid #bbbbbb;
+    padding-top: 5%;
+}
+
 .edit-options {
     width: 30%;
     float: right;
