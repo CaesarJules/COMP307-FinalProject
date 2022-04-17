@@ -41,15 +41,28 @@
             <h3>Select a term:</h3>
             <div class="rate-option" id="term1">Fall 2021</div>
             <div class="rate-option" id="term2">Winter 2022</div>
-        </div>>
-        <div class="rate-review">
-            <h3>Rate this TA:</h3>
-            <form id="form">
-                <textarea placeholder="Write a review" id="review" rows="3" cols="50"></textarea> <br></br>             
-                <input type="submit" value="Submit">
-                <div id="sucess"></div>
-            </form>
         </div>
+        <form id="form"></form>
+        <div class="rate-select">
+            <h3>Rate this TA:</h3>
+            <input type="radio" id="one" name="star" value="1" required>
+            <label for="one">1</label>
+            <input type="radio" id="two" name="star" value="2">
+            <label for="two">2</label>
+            <input type="radio" id="three" name="star" value="3">
+            <label for="three">3</label>
+            <input type="radio" id="four" name="star" value="4">
+            <label for="four">4</label>
+            <input type="radio" id="five" name="star" value="5">
+            <label for="five">5</label>
+        </div>
+        <div class="rate-review">
+            <h3>Review this TA:</h3>
+            <textarea placeholder="Write a review" id="review" rows="3" cols="50"></textarea> <br></br>             
+            <input id="submit-review" type="submit" value="Submit">
+            <div id="sucess"></div>
+        </div>
+    </form>
     </div>
 
     <div class="footer">

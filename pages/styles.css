@@ -164,6 +164,7 @@ a, a:visited, a:hover{
     padding: 10px;
     margin: 0 5px;
     transition: 0.25s;
+    cursor: pointer;
 }
 
 .rate-option:hover {
@@ -347,6 +348,7 @@ tbody:empty::before {
 .detail-info {
     font-size: 14px;
     margin: 0;
+    background-color: #f4f4f4;
 }
 
 .detail-info td{
@@ -402,7 +404,7 @@ tbody:empty::before {
     background-color: #ED1B2F;
 }
 
-#import-course #submit-file, #submit-oh-btn{
+#import-course #submit-file, #submit-oh-btn, #submit-review{
     margin-top: 20px;
     display:block;
     border: 0;
@@ -412,6 +414,11 @@ tbody:empty::before {
     border-radius: 15px;
     color: white;
     background-color: #000000;
+}
+
+#import-course #submit-file:hover, #submit-oh-btn:hover, #submit-review:hover {
+    color: black;
+    background-color: #ED1B2F;
 }
 
 #manual-add-ta-form table, #manual-add-course-form table{
@@ -439,6 +446,7 @@ tbody:empty::before {
     margin:0;
     margin-bottom:10px;
     font-size: 14px;
+    background-color: #f4f4f4;
 }
 
 #ta-detail-name td {
