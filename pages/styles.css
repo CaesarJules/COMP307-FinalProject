@@ -531,6 +531,9 @@ textarea{
     .dashboard-container, .global-container {
         margin: 30% auto;
     }
+    .login-container{
+        margin: 40% auto;
+    }
     .ta-container{
         width: 75%;
         margin: 25% auto;
@@ -605,7 +608,10 @@ textarea{
         width: 70%;
         margin: auto;
     }
-    .dashboard-container, .global-container, #ta-form{
+    .dashboard-container, .global-container, #ta-form {
+        margin: 40% auto;
+    }
+    .login-container{
         margin: 40% auto;
     }
     .mcgill, .copyright {
