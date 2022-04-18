@@ -688,6 +688,12 @@ textarea{
     }
     .logout-icon, .user-icon {
         margin: 0;
+<<<<<<< HEAD
+=======
+    }
+    .user-icon{
+        width: 70%;
+>>>>>>> fef60788f9da6d7fb5c9878c7d6618863503b9f3
     }
     .user-icon{
         width: 70%;
@@ -726,8 +732,17 @@ textarea{
     #ta-admin-header, #ta-form-header {
         width: 75%;
     }
+<<<<<<< HEAD
     #ta-admin-header button, #ta-form-header button, #ta-form-header input{
         margin:5px 5px;
+=======
+    #ta-admin-header > #search-ta-course {
+        width: 100%;
+    }
+    #ta-admin-header button, #ta-form-header button{
+        margin:0 5px;
+        font-size: small;
+>>>>>>> fef60788f9da6d7fb5c9878c7d6618863503b9f3
     }
     /* The line below does not work, check the table in ta-admin
     #admin-table-container table {
