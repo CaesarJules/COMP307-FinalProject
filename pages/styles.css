@@ -590,6 +590,8 @@ textarea{
 @media only screen and (max-width: 992px) {
     table {
         font-size: small;
+    }
+    td, th {
         padding: 1em;
     }
     .task-name {
