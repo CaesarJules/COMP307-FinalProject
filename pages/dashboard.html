@@ -84,24 +84,28 @@
 
     <script>
         let loggedInUser = sessionStorage.getItem('currentlyLoggedIn');
+        let accessible_pages = sessionStorage.getItem('accessible_pages');
+        accessible_pages = accessible_pages? accessible_pages:['']
+        if (accessible_pages.length>0){     
+            let curr_page = window.location.pathname.split("/").pop();
+            if (!accessible_pages.includes(curr_page)){
+                logout();
+            }
+        }
         if (loggedInUser !== null){     
             document.getElementById('curr-user').innerHTML=loggedInUser
         }
         
         let loggedInUserRoles = sessionStorage.getItem('loggedInUserRoles');
         function logout(){
-            if (loggedInUser !== null){     
-                sessionStorage.removeItem('currentlyLoggedIn');
-                if (loggedInUserRoles !== null){
-                    sessionStorage.removeItem('loggedInUserRoles');
-                }
-                window.location = "index.html";
-            }
+            sessionStorage.removeItem('currentlyLoggedIn');
+            sessionStorage.removeItem('loggedInUserRoles');
+            sessionStorage.removeItem('accessible_pages');
+            window.location = "index.html";
+            
             return false;
         }
-        
-        
- 
+
         //Define all the roles except student
         let roles = ['taAdmin','ta','professor','sysop'];
         let curr_roles = loggedInUserRoles? loggedInUserRoles:[];
@@ -112,10 +116,19 @@
             'ta':'mgnt-dash',
             'sysop':'sysop-dash'
         }
+        //Define accessible pages and update them according to the role of the loggedin user
+        let accessible_pages = ['rate-search.html','rate.html','dashboard.html'];
+        let pages_repo = {
+            'taAdmin':['ta-admin.html','add-ta.html','ta-detail.html','course-detail.html'],
+            'professor':['ta-mgnt.html','edit-oh.html'],
+            'ta':['ta-mgnt.html','edit-oh.html'],
+            'sysop':['sysop.html']
+        }
             
         for(let i=0; i<roles.length; i++){
             if (curr_roles.includes(roles[i])){
                 document.getElementById(dashboard_id[roles[i]]).style.display = "inline-block";
+                accessible_pages.push.apply(accessible_pages, pages_repo[roles[i]]);
             } else{
                 if((roles[i]==='professor' && curr_roles.includes('ta')) || 
                     (roles[i]==='ta' && curr_roles.includes('professor'))){
@@ -123,7 +136,9 @@
                 }
             }            
         }
-        
+
+        sessionStorage.setItem("accessible_pages", accessible_pages);
+
     </script>
 
 </body>
