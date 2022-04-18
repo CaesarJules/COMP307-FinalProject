@@ -697,6 +697,11 @@ textarea{
         height: 50px;
         margin-top: 15%;
         padding-left: 10%;
+        padding-top: 3vh;
+    }
+    .header button {
+        font-size: small;
+        padding: 0.5%;
     }
     .top-banner {
         padding: 0;
