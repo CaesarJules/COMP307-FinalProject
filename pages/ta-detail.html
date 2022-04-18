@@ -40,8 +40,8 @@
                 <tr>
                     <td><h1 class="ta-name">Ada Lovelace</h1></td>
                     <td >
-                        <button type="submit" id="remove-ta-btn">Read Reviews</button>
-                        <button type="submit" id="remove-ta-btn">Read Performance Logs</button>
+                        <button onclick="openReviews()" type="submit" id="remove-ta-btn">Read Reviews</button>
+                        <button onclick="openPerformanceLogs()" type="submit" id="remove-ta-btn">Read Performance Logs</button>
                         <button type="submit" id="remove-ta-btn">Remove TA</button>
                     </td>
                 </tr>
@@ -141,6 +141,29 @@
         </div>
     </div>
 
+    <div id="reviews-modal" class="modal">
+        <div class="modal-content">
+            <div onclick="closeReviews()" class="close">&times;</div>
+            <h2>Ada Lovelace's Reviews</h2>
+            <div class="modal-section">
+                <h4>COMP 303, Winter 2022</h4>
+                <p><i class="fa-solid fa-star"></i> 5</p>
+                <p>Ada explains the material very clearly.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="performance-logs-modal" class="modal">
+        <div class="modal-content">
+            <div onclick="closePerformanceLogs()" class="close">&times;</div>
+            <h2>Ada Lovelace's Performance Logs</h2>
+            <div class="modal-section">
+                <h4>COMP 303, Winter 2022</h4>
+                <p>Ada grades very fast.</p>
+            </div>
+        </div>
+    </div>
+
     <div class="footer">
         <div class="mcgill">
             McGill University
@@ -151,6 +174,7 @@
     </div>
     
     <script>
+
         let loggedInUser = sessionStorage.getItem('currentlyLoggedIn');
         let accessible_pages = sessionStorage.getItem('accessible_pages');
         if (accessible_pages !== null){     
@@ -240,6 +264,22 @@
                     sessionStorage.removeItem(curr);
                 }
             }
+        }
+
+        function openReviews() {
+            document.getElementById("reviews-modal").style.display = "block";
+        }
+
+        function closeReviews() {
+            document.getElementById("reviews-modal").style.display = "none";
+        }
+
+        function openPerformanceLogs() {
+            document.getElementById("performance-logs-modal").style.display = "block";
+        }
+
+        function closePerformanceLogs() {
+            document.getElementById("performance-logs-modal").style.display = "none";
         }
 
     </script>
