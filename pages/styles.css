@@ -10,6 +10,7 @@ html, body {
 .alert {
     font-size: large;
     display: none;
+    text-align: center;
 }
 
 a, a:visited, a:hover{
@@ -184,7 +185,7 @@ a, a:visited, a:hover{
     border-bottom: 1px solid #bbbbbb;
 }
 
-#rate-container, .global-container{
+#rate-container, .global-container, .ta-container{
     width:80%;
     margin:12% auto;
 }
@@ -696,6 +697,11 @@ textarea{
         height: 50px;
         margin-top: 15%;
         padding-left: 10%;
+        padding-top: 3vh;
+    }
+    .header button {
+        font-size: small;
+        padding: 0.5%;
     }
     .top-banner {
         padding: 0;

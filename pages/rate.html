@@ -6,6 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -35,6 +38,7 @@
     </div>
 
     <div id="rate-container">
+        
         <form id="review-form">
         <div class="rate-select">
             <h1 class="ta-name">TA</h1>
@@ -48,7 +52,7 @@
         <div class="rate-select">
             <h3>Select a term:</h3>
             <select id="term" name="term" class="selectpicker">
-                <option value="" selected disabled><font color:black>Ter </font></option>
+                <option value="" selected disabled><font color:black>Term </font></option>
                 <option value="Fall 2021">Fall 2021</option>
                 <option value="Winter 2022">Winter 2022</option>
             </select>
@@ -70,9 +74,12 @@
             <h3>Review this TA:</h3>
             <textarea name="review" placeholder="Write a review" id="review" rows="3" cols="50"></textarea> <br></br>             
             <input id="submit-review" type="submit" value="Submit">
-            <div id="sucess"></div>
         </div>
         </form>
+        <div class="alert alert-dismissible fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <p><strong>Success!</strong></p>
+        </div>
     </div>
 
     <div class="footer">
@@ -139,25 +146,40 @@
             return false;
         }
                    
-
+        /*
         for(index in courses) {
             courseSelect.options[courseSelect.options.length] = new Option(courses[index], courses[index]);
         }
+        */
         loadCachedData();
 
-        const form = document.getElementById('form');
-        form.addEventListener('submit', feedback);
+        const rate_ta = document.getElementById('review-form');
+        rate_ta.addEventListener('submit', feedback);
 
         function feedback(event){
             event.preventDefault();
+
             let review = document.getElementById("review");
+            console.log(review.value);
             if (review.value === ""){
                 review.style.border = "1px solid #ED1B2F";
             }
             else{
                 review.value = "";
-                document.getElementById("sucess").innerHTML = "Your review has been submitted.";
                 review.style.border = "";
+                //Display alert message and go back to home after 1.5sec
+                let alert = document.getElementsByClassName('alert')[0]
+                if (alert.classList.contains('alert-danger')){
+                        alert.classList.remove('alert-danger');
+                    }
+                alert.classList.add('alert-success');
+                alert.innerHTML = '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> \
+                    <p><strong>Success!</strong></p>';
+                alert.style.display = 'block';
+                setTimeout(()=>{
+                alert.style.display = 'none';
+                window.location = "rate-search.html"; 
+                }, 1500);
             }
         }
 
@@ -176,10 +198,11 @@
                     }
                 }              
             }
-
+            /*
             for(index in courses) {
                 courseSelect.options[courseSelect.options.length] = new Option(courses[index], courses[index]);
             }
+            */
             //Clear the session storage values for a better experience with register later
             for (let i=0; i<fields.length; i++){
                 curr = fields[i];
@@ -189,6 +212,7 @@
                 }
             }
         }
+
     </script>
     
 </body>
