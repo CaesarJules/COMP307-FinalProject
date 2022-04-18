@@ -99,10 +99,14 @@
 
     <script>
 
-        // display ta view
-        taView();
-
         let loggedInUser = sessionStorage.getItem('currentlyLoggedIn');
+        let accessible_pages = sessionStorage.getItem('accessible_pages');
+        if (accessible_pages !== null){     
+            let curr_page = window.location.pathname.split("/").pop();
+            if (!accessible_pages.includes(curr_page)){
+                logout();
+            }
+        }
         if (loggedInUser !== null){     
             document.getElementById('curr-user').innerHTML=loggedInUser
         }
@@ -111,7 +115,8 @@
         if ( !document.getElementById("ta-admin-nav").classList.contains('active')){
             document.getElementById("ta-admin-nav").classList.add('active')
         }
-
+        // display ta view
+        taView();
         //Define all the roles except student
         let roles = ['taAdmin','ta','professor','sysop'];
         let curr_roles = loggedInUserRoles? loggedInUserRoles:[];
@@ -150,6 +155,9 @@
                 sessionStorage.removeItem('currentlyLoggedIn');
                 if (loggedInUserRoles !== null){
                     sessionStorage.removeItem('loggedInUserRoles');
+                }
+                if (accessible_pages !== null){
+                    sessionStorage.removeItem('accessible_pages');
                 }
                 window.location = "index.html";
             }

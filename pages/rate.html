@@ -85,6 +85,13 @@
     </div>
     <script>
         let loggedInUser = sessionStorage.getItem('currentlyLoggedIn');
+        let accessible_pages = sessionStorage.getItem('accessible_pages');
+        if (accessible_pages !== null){     
+            let curr_page = window.location.pathname.split("/").pop();
+            if (!accessible_pages.includes(curr_page)){
+                logout();
+            }
+        }
         if (loggedInUser !== null){     
             document.getElementById('curr-user').innerHTML=loggedInUser;
         }
@@ -127,6 +134,9 @@
                 sessionStorage.removeItem('currentlyLoggedIn');
                 if (loggedInUserRoles !== null){
                     sessionStorage.removeItem('loggedInUserRoles');
+                }
+                if (accessible_pages !== null){
+                    sessionStorage.removeItem('accessible_pages');
                 }
                 window.location = "index.html";
             }
