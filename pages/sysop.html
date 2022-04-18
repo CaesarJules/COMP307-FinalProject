@@ -274,12 +274,16 @@
                 }
                 for (var i = 0; i < users.length; i++){
                     var newRow = table.insertRow(table.length);
-                    for(var j=0; j<users[i].length; j++){
-                        var cell = newRow.insertCell(j);
-                        cell.innerHTML = users[i][j];
-                    } 
                     //get a unique hash to be used as an ID
                     let row_id = `${users[i][0]}-${users[i][2]}-${users[i][3]}`;
+                    for(var j=0; j<users[i].length; j++){
+                        var cell = newRow.insertCell(j);
+                        if(j==1){
+                            cell.innerHTML = users[i][j].split("-").join(', ');
+                        }else{
+                            cell.innerHTML = users[i][j];
+                        }         
+                    } 
                     var cell = newRow.insertCell(users[i].length);
                     cell.innerHTML = '<div class="edit-icon" ><i onclick=\'edit_options("'+ row_id + '")\' class="fa-solid fa-pen-to-square"></i> </div> <div class="edit-options '+ row_id +'"> \
                         <a href="javascript:;" onclick=\'return edit_row(this.parentNode)\'> \
@@ -308,10 +312,19 @@
         }
 
         function delete_row(row_id){
+            /*
             row_id = row_id.getAttribute('class').split(" ")
             data_to_delete = row_id[1].split("-");
             //TODO!!!! Use an HTTP Request to delete from the Database the data corresponding to the username, course, and Semester above
-
+            var request = new XMLHttpRequest();
+            request.open('POST', 'https://www.cs.mcgill.ca/~aphila/cgi-bin/delete.py');
+            request.onload = function () {
+                window.location.reload();
+            }
+            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            request.send("email=" + data_to_delete[0] + "&course=" + data_to_delete[1] + 
+            "&term=" + data_to_delete[2] );
+            */
             return false;
         }
 

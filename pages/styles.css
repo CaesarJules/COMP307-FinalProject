@@ -10,6 +10,7 @@ html, body {
 .alert {
     font-size: large;
     display: none;
+    text-align: center;
 }
 
 a, a:visited, a:hover{
@@ -184,7 +185,7 @@ a, a:visited, a:hover{
     border-bottom: 1px solid #bbbbbb;
 }
 
-#rate-container, .global-container{
+#rate-container, .global-container, .ta-container{
     width:80%;
     margin:12% auto;
 }
