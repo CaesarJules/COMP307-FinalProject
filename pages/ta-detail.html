@@ -142,7 +142,7 @@
     </div>
 
     <div id="reviews-modal" class="modal">
-        <div class="modal-content">
+        <div id="reviews-modal-content" class="modal-content">
             <div onclick="closeReviews()" class="close">&times;</div>
             <h2>Ada Lovelace's Reviews</h2>
             <div class="modal-section">
@@ -263,6 +263,24 @@
         }
 
         function openReviews() {
+
+            // get the TA id from the url
+            var queryString = window.location.search;
+            var urlParams = new URLSearchParams(queryString);
+            var TAid = urlParams.get('id');
+
+            // update the reviews.json file
+            let request = new XMLHttpRequest();
+            request.open('GET', 'https://www.cs.mcgill.ca/~aphila/cgi-bin/readReview.py');
+            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            request.send();
+
+            // get data from reviews.json
+            let jsonData= require('https://www.cs.mcgill.ca/~aphila/cgi-bin/reviews.json');
+
+            console.log(jsonData);
+
+            // display the modal
             document.getElementById("reviews-modal").style.display = "block";
         }
 
