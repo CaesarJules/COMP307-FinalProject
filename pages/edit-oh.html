@@ -74,7 +74,8 @@
     <script>
         let loggedInUser = sessionStorage.getItem('currentlyLoggedIn');
         let accessible_pages = sessionStorage.getItem('accessible_pages');
-        if (accessible_pages !== null){     
+        accessible_pages = accessible_pages? accessible_pages:['']
+        if (accessible_pages.length>0){     
             let curr_page = window.location.pathname.split("/").pop();
             if (!accessible_pages.includes(curr_page)){
                 logout();
@@ -118,16 +119,11 @@
         }
 
         function logout(){
-            if (loggedInUser !== null){     
-                sessionStorage.removeItem('currentlyLoggedIn');
-                if (loggedInUserRoles !== null){
-                    sessionStorage.removeItem('loggedInUserRoles');
-                }
-                if (accessible_pages !== null){
-                    sessionStorage.removeItem('accessible_pages');
-                }
-                window.location = "index.html";
-            }
+            sessionStorage.removeItem('currentlyLoggedIn');
+            sessionStorage.removeItem('loggedInUserRoles');
+            sessionStorage.removeItem('accessible_pages');
+            window.location = "index.html";
+            
             return false;
         }
     </script>
