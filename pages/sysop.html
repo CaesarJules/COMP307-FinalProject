@@ -144,7 +144,7 @@
     <script>
         let loggedInUser = sessionStorage.getItem('currentlyLoggedIn');
         let accessible_pages = sessionStorage.getItem('accessible_pages');
-        accessible_pages = accessible_pages? accessible_pages:['']
+        accessible_pages = accessible_pages? accessible_pages.split(','):['']
         if (accessible_pages.length>0){     
             let curr_page = window.location.pathname.split("/").pop();
             if (!accessible_pages.includes(curr_page)){
@@ -311,7 +311,6 @@
             row_id = row_id.getAttribute('class').split(" ")
             data_to_delete = row_id[1].split("-");
             //TODO!!!! Use an HTTP Request to delete from the Database the data corresponding to the username, course, and Semester above
-            console.log(data_to_delete)
 
             return false;
         }

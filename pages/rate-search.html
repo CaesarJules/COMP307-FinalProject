@@ -74,7 +74,7 @@
 
         let loggedInUser = sessionStorage.getItem('currentlyLoggedIn');
         let accessible_pages = sessionStorage.getItem('accessible_pages');
-        accessible_pages = accessible_pages? accessible_pages:['']
+        accessible_pages = accessible_pages? accessible_pages.split(","):['']
         if (accessible_pages.length>0){     
             let curr_page = window.location.pathname.split("/").pop();
             if (!accessible_pages.includes(curr_page)){
@@ -160,15 +160,12 @@
                 var data = request.responseText;
                 var htmlObject = document.createElement('div');
                 htmlObject.innerHTML = data;
-                console.log(data);
                 tags = htmlObject.getElementsByTagName("h2");
-                //console.log(users);
                 table = document.getElementById('ta-database');
                 var TAs = [];
                 for (var i = 0; i < tags.length; i++){
                     TAs.push(tags[i].innerHTML.split(','));
                 }
-                console.log(TAs)
                 var htmlObject = document.createElement('div');
                 htmlObject.innerHTML = data;
     

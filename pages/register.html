@@ -131,13 +131,13 @@
       request.onload = function () {
         sessionStorage.setItem("currentlyLoggedIn", email);
         sessionStorage.setItem("loggedInUserRoles", temp);
+        sessionStorage.setItem("accessible_pages", ["dashboard.html"]);
         if ($('#register-btn').value==="Update"){
           window.location.href = "./sysop.html";
         }else{
           window.location.href = "./dashboard.html";
         }
       }
-      console.log(fname, lname, id, course, term, role, email, password, confirm)
       request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       request.send("fname=" + fname + "&lname=" + lname + "&id=" + id + "&course=" + course + 
       "&term=" + term + "&role=" + role + "&email=" + email + "&password=" + password + "&confirm=" + confirm);

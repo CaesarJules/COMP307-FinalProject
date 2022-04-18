@@ -84,8 +84,8 @@
 
     <script>
         let loggedInUser = sessionStorage.getItem('currentlyLoggedIn');
-        let accessible_pages = sessionStorage.getItem('accessible_pages');
-        accessible_pages = accessible_pages? accessible_pages:['']
+        var accessible_pages = sessionStorage.getItem('accessible_pages'); 
+        accessible_pages = accessible_pages? ['dashboard.html']:['']
         if (accessible_pages.length>0){     
             let curr_page = window.location.pathname.split("/").pop();
             if (!accessible_pages.includes(curr_page)){
@@ -101,6 +101,7 @@
             sessionStorage.removeItem('currentlyLoggedIn');
             sessionStorage.removeItem('loggedInUserRoles');
             sessionStorage.removeItem('accessible_pages');
+
             window.location = "index.html";
             
             return false;
@@ -117,7 +118,7 @@
             'sysop':'sysop-dash'
         }
         //Define accessible pages and update them according to the role of the loggedin user
-        let accessible_pages = ['rate-search.html','rate.html','dashboard.html'];
+        accessible_pages.push.apply(accessible_pages, ['rate-search.html','rate.html']);
         let pages_repo = {
             'taAdmin':['ta-admin.html','add-ta.html','ta-detail.html','course-detail.html'],
             'professor':['ta-mgnt.html','edit-oh.html'],
@@ -136,7 +137,6 @@
                 }
             }            
         }
-
         sessionStorage.setItem("accessible_pages", accessible_pages);
 
     </script>

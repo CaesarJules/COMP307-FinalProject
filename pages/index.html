@@ -65,6 +65,7 @@
             sessionStorage.setItem("currentlyLoggedIn", email);
             let roles = content[1].innerHTML.trim().split("-");
             sessionStorage.setItem("loggedInUserRoles", roles);
+            sessionStorage.setItem("accessible_pages", ["dashboard.html"]);
             window.location.href = "dashboard.html";
           }
           else{

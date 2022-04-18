@@ -86,7 +86,7 @@
     <script>
         let loggedInUser = sessionStorage.getItem('currentlyLoggedIn');
         let accessible_pages = sessionStorage.getItem('accessible_pages');
-        accessible_pages = accessible_pages? accessible_pages:['']
+        accessible_pages = accessible_pages? accessible_pages.split(","):['']
         if (accessible_pages.length>0){     
             let curr_page = window.location.pathname.split("/").pop();
             if (!accessible_pages.includes(curr_page)){
@@ -169,13 +169,8 @@
                 storedValue = sessionStorage.getItem(curr);
                 if (storedValue !== null){ 
                     if (curr==='ta_name') {
-                        console.log("got here");
                         let temp = document.getElementsByClassName('ta-name')[0];
                         temp.innerHTML = "Rate " + storedValue;
-                        // let ta_names = storedValue.split(" ");
-                        // let ta_email = ta_names.join('.')+"@mail.mcgill.ca"
-                        // document.getElementById('ta-email').innerHTML = ta_email;
-                        // document.getElementById('email-href').setAttribute("href",`mailto:${ta_email}`); 
                     }else if (curr==='ta_current_courses' || curr === 'ta_past_courses') {
                         courses.push(storedValue)
                     }
