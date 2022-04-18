@@ -521,7 +521,7 @@ tbody:empty::before {
 
 #ta-detail-name button{
     float:right;
-    margin-left: 1.5rem;
+    margin-left: 1rem 0 0 1.5rem;
     border: 0;
     padding: 10px 20px;
     cursor: pointer;
@@ -615,7 +615,7 @@ textarea{
         width: 75%;
         margin: 25% auto;
     }
-    .ta-detail-name-btn {
+    #ta-detail-name button {
         width: 51%;
         margin:5px 0;
     }
