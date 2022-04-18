@@ -588,6 +588,10 @@ textarea{
 }
 /* Size definition for small and medium screen size devices (i.e: tablets ) */
 @media only screen and (max-width: 992px) {
+    table {
+        font-size: small;
+        padding: 1em;
+    }
     .task-name {
         font-size: 2vh;
     }
@@ -610,6 +614,10 @@ textarea{
     .ta-container{
         width: 75%;
         margin: 25% auto;
+    }
+    .ta-detail-name-btn {
+        width: 51%;
+        margin:5px 0;
     }
     #ta-admin-header button, #ta-form-header button #ta-admin-header input{
         margin: 5px auto 0 auto;
@@ -675,6 +683,10 @@ textarea{
         font-size: x-small;
     }
 
+    td, th {
+        padding: 10px;
+    }
+
     .task-name {
         font-size: 2vh;
     }
@@ -688,12 +700,9 @@ textarea{
     }
     .logout-icon, .user-icon {
         margin: 0;
-<<<<<<< HEAD
-=======
     }
     .user-icon{
         width: 70%;
->>>>>>> fef60788f9da6d7fb5c9878c7d6618863503b9f3
     }
     .user-icon{
         width: 70%;
@@ -732,17 +741,8 @@ textarea{
     #ta-admin-header, #ta-form-header {
         width: 75%;
     }
-<<<<<<< HEAD
     #ta-admin-header button, #ta-form-header button, #ta-form-header input{
         margin:5px 5px;
-=======
-    #ta-admin-header > #search-ta-course {
-        width: 100%;
-    }
-    #ta-admin-header button, #ta-form-header button{
-        margin:0 5px;
-        font-size: small;
->>>>>>> fef60788f9da6d7fb5c9878c7d6618863503b9f3
     }
     /* The line below does not work, check the table in ta-admin
     #admin-table-container table {
