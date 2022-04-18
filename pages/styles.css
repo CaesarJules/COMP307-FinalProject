@@ -69,6 +69,7 @@ a, a:visited, a:hover{
     text-align: center;
     border-radius: 5px;
     display: none;
+    font-size: medium;
 }
 .header button:hover, .header button:focus, .header button:active {
     background-color: #F4F4F4;
@@ -607,7 +608,7 @@ textarea{
         margin: 30% auto;
     }
     .login-container{
-        margin: 40% auto;
+        margin: 60% auto;
     }
     .ta-container{
         width: 75%;
