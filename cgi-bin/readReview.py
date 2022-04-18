@@ -1,12 +1,12 @@
 #!/usr/bin/python
 
-import make_json
+from make_json import make_json;
 
 # convert csv to json
-make_json("reviews.csv", "reviews.json")
+make_json("cgi-bin/reviews.csv", "cgi-bin/reviews.json")
 
 reviews = []
-with open('reviews.csv', 'r') as f:
+with open('cgi-bin/reviews.csv', 'r') as f:
     for line in f.readlines()[1:]:
         line = line.strip()
         if not line: break
