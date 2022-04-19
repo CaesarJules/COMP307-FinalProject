@@ -13,8 +13,8 @@ with open('TA_database.csv', 'r') as f:
         courses.append([split[1], split[2], split[4]])
 
 TAs = []
-if exists('TA_Cohort.csv'):
-    with open('TA_Cohort.csv', 'r') as f:
+if exists('TACohort.csv'):
+    with open('TACohort.csv', 'r') as f:
         for line in f.readlines()[1:]:
             line = line.strip()
             if not line: break

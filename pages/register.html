@@ -57,8 +57,8 @@
       </span>
       
       <input type="email" name="email" placeholder="Username (McGill Email)">
-      <input type="password" name="password" placeholder="Password">
-      <input type="password" name="confirm_password" placeholder="Confirm Password">
+      <input id="pwd-field" type="password" name="password" placeholder="Password">
+      <input id="conf-pwd-field" type="password" name="confirm_password" placeholder="Confirm Password">
 
       <input id="register-btn" class="submit-btn" type="submit" value="Register">
     </form>
@@ -94,6 +94,11 @@
           if (submitBtnTxt.value!=="Update"){
             submitBtnTxt.val("Update");
             $('#title-header').html("Update");
+            document.getElementById('pwd-field').style.display = 'none';
+            document.getElementById('conf-pwd-field').style.display = 'none';
+            
+            $("#back-option").attr("href", "sysop.html");
+            $("#back-option").html("Back to sysop");
           }
           
         }

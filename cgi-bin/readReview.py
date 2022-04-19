@@ -1,21 +1,20 @@
 #!/usr/bin/python
 
-from make_json import make_json;
+import cgi, cgitb, csv, json
+from os.path import exists
+from make_json import *
+cgitb.enable()
 
 # convert csv to json
-make_json("cgi-bin/reviews.csv", "cgi-bin/reviews.json")
+make_json('reviews.csv', 'reviews.json')
+            
 
-reviews = []
-with open('cgi-bin/reviews.csv', 'r') as f:
-    for line in f.readlines()[1:]:
-        line = line.strip()
-        if not line: break
-        split = line.split(',')
-        reviews.append([split[0], split[1], split[2], split[3], split[4], split[5]])
-
-
-
-
-
-
-
+print ("Content-type:text/html\r\n\r\n")
+print ("<html>")
+print ("<head>")
+print ("<title>Hello - Second CGI Program</title>")
+print ("</head>")
+print ("<body>")
+print ("<h2>working</h2>")
+print ("</body>")
+print ("</html>")
